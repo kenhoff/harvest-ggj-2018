@@ -1,0 +1,11 @@
+{
+  "name": "pidgeon",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:kenhoff/pidgeon.git",
+  "author": "Ken Hoff <ken@hoff.tech>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
