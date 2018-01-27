@@ -1,3 +1,5 @@
+const webpack = require("webpack");
+
 module.exports = {
     entry: './src/entry.jsx',
     output: {
@@ -18,5 +20,6 @@ module.exports = {
             }
         ]
     },
-    devtool: "cheap-module-eval-source-map"
+    devtool: "cheap-module-eval-source-map",
+    plugins: [new webpack.EnvironmentPlugin({"DEFAULT_DELAY": 100})]
 }
