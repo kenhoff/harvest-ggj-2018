@@ -67,34 +67,40 @@ class Engine {
         this.renderedOptions = [];
     }
     start() {
+        // console.log("Starting....");
         this.currentIndexInSequence = 0;
-        if (this.currentSequence[this.currentIndexInSequence].delay) {
-            setTimeout(() => {
-                this.nextStepInSequence();
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 100));
-        } else {
+        setTimeout(() => {
+            this.renderedSequence = [
+                ...this.renderedSequence,
+                this.currentSequence[this.currentIndexInSequence],
+            ]
+            this.update()
+            // console.log("setting next step in sequence");
             this.nextStepInSequence();
-        }
+        }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
+
     }
     nextStepInSequence() {
-        this.currentIndexInSequence += 1
+        this.currentIndexInSequence += 1;
         if (this.currentSequence[this.currentIndexInSequence].type == "options") {
             setTimeout(() => {
                 this.renderedOptions = this
                     .currentSequence[this.currentIndexInSequence]
                     .options;
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 100));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
         } else {
-            this.renderedSequence = [
-                ...this.renderedSequence,
-                this.currentSequence[this.currentIndexInSequence],
-            ]
+            // add dialog option to renderedSequence
+            // console.log("adding dialog option to sequence....");
             if (this.currentIndexInSequence < this.currentSequence.length) {
                 setTimeout(() => {
+                    this.renderedSequence = [
+                        ...this.renderedSequence,
+                        this.currentSequence[this.currentIndexInSequence],
+                    ]
                     this.nextStepInSequence();
                     this.update()
-                }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 100));
+                }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
             }
         }
         this.update()
@@ -107,6 +113,7 @@ class Engine {
             .find((option) => {
                 return optionID === option.id
             })
+        this.currentSequence = option.sequence;
         console.log(option);
     }
 }
