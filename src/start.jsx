@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import '../styles/main.scss';
 
-// const DEFAULT_DELAY = 1000;
-const DEFAULT_DELAY = 100;
+const DEFAULT_DELAY = 1000;
+// const DEFAULT_DELAY = 100;
 
 class Engine {
     constructor() {
