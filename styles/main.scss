@@ -3,6 +3,21 @@ body {
     position: relative;
 }
 
+.credits,
+.start-game {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.credits {
+    color: white;
+    background-color: black;
+}
+
 .background {
     height: 100vh;
     width: 100vw;
@@ -19,7 +34,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
+    align-items: stretch;
     overflow-y: hidden;
     padding: 1em;
     border: 1px solid black;
@@ -38,10 +53,10 @@ body {
     }
 
     .player-response {
-        align-self: flex-end;
+        text-align: right;
     }
 
     .entity-response {
-        align-self: flex-start;
+        text-align: left;
     }
 }

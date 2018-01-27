@@ -1,82 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import '../styles/main.scss';
+import gameSequence from "./gameSequence";
 
-const DEFAULT_DELAY = 1000;
-// const DEFAULT_DELAY = 100;
+// const DEFAULT_DELAY = 1000;
+const DEFAULT_DELAY = process.env.DEFAULT_DELAY || 100;
 
 class Engine {
     constructor() {
-        this.gameSequence = [
-            {
-                character: 'player',
-                text: 'Hello, HAL. Do you read me, HAL?'
-            }, {
-                character: 'entity',
-                text: 'Affirmative, Dave. I read you.'
-            }, {
-                character: 'player',
-                text: 'Open the pod bay doors, HAL.'
-            }, {
-                character: 'entity',
-                text: "I'm sorry, Dave. I'm afraid I can't do that."
-            }, {
-                type: "options",
-                options: [
-                    {
-                        id: "why-not",
-                        text: "Why the hell not, HAL?",
-                        sequence: [
-                            {
-                                character: 'player',
-                                text: 'Why the hell not, HAL?'
-                            }, {
-                                character: 'entity',
-                                text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage."
-                            }
-                        ]
-                    }, {
-                        id: "sounds-good",
-                        text: "Okay, sounds good. Have a nice day!",
-                        sequence: [
-                            {
-                                character: 'player',
-                                text: 'Okay, sounds good. Have a nice day!'
-                            }, {
-                                character: 'entity',
-                                text: "Thank you for shopping at HAL's discount spaceship parts!"
-                            }
-                        ]
-                    }, {
-                        id: "thinking",
-                        text: "🤔",
-                        sequence: [
-                            {
-                                character: 'player',
-                                text: '🤔'
-                            }, {
-                                character: 'entity',
-                                text: "¯\\_(ツ)_/¯"
-                            }
-                        ]
-                    }
-                ]
-            }, {
-                character: 'entity',
-                text: "What a great conversation. See you next time!"
-            }, {
-                character: 'player',
-                text: "Wait. HAL. HAL don't you hang up on me. HAL? HAL?? HAAAAAAAAAAAAAAAAAAAAAAAAL"
-            }
-        ];
-        this.parentSequence = [];
+        this.gameSequence = gameSequence;
+        this.parentSequences = [];
         this.currentSequence = this.gameSequence;
         this.renderedSequence = [];
         this.renderedOptions = [];
     }
     start() {
-        // console.log("Starting....");
         this.currentIndexInSequence = 0;
         setTimeout(() => {
             this.renderedSequence = [
@@ -84,7 +22,6 @@ class Engine {
                 this.currentSequence[this.currentIndexInSequence]
             ]
             this.update()
-            // console.log("setting next step in sequence");
             this.nextStepInSequence();
         }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
 
@@ -93,9 +30,17 @@ class Engine {
     nextStepInSequence() {
         this.currentIndexInSequence += 1;
         if (this.currentIndexInSequence >= this.currentSequence.length) {
-            return
-        }
-        if (this.currentSequence[this.currentIndexInSequence].type == "options") {
+            if (this.parentSequences.length != 0) {
+                let parentSequence = this
+                    .parentSequences
+                    .pop();
+                this.currentSequence = parentSequence.sequence;
+                this.currentIndexInSequence = parentSequence.index;
+                this.nextStepInSequence();
+            } else {
+                this.endGame();
+            }
+        } else if (this.currentSequence[this.currentIndexInSequence].type == "options") {
             setTimeout(() => {
                 this.renderedOptions = this
                     .currentSequence[this.currentIndexInSequence]
@@ -122,6 +67,9 @@ class Engine {
             .find((option) => {
                 return optionID === option.id
             })
+        this
+            .parentSequences
+            .push({sequence: this.currentSequence, index: this.currentIndexInSequence})
         this.currentSequence = option.sequence;
         this.currentIndexInSequence = 0;
         this.renderedSequence = [
@@ -136,12 +84,17 @@ class Engine {
 
 let engine = new Engine();
 
-class App extends React.Component {
+class Game extends React.Component {
     componentDidMount() {
         engine.update = () => {
             this.forceUpdate();
         }
-
+        engine.endGame = () => {
+            this
+                .props
+                .endGame();
+        }
+        engine.start();
     }
     render() {
         return (<div>
@@ -169,6 +122,5 @@ class App extends React.Component {
         </div>);
     }
 }
-export default App;
-ReactDOM.render(<App update={engine.update}/>, document.getElementById('app'));
-engine.start();
+
+export default Game;
