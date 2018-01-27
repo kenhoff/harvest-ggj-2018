@@ -5,6 +5,8 @@ import gameSequence from "./gameSequence";
 
 // const DEFAULT_DELAY = 1000;
 const DEFAULT_DELAY = process.env.DEFAULT_DELAY || 100;
+console.log(process.env.DEFAULT_DELAY);
+console.log(DEFAULT_DELAY);
 
 class Engine {
     constructor() {
