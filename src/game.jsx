@@ -97,12 +97,15 @@ class Game extends React.Component {
         engine.start();
     }
     render() {
-        // get location from most recent sequence thingamabob
         let location = "farmhouse-day";
-        if (engine.renderedSequence.length != 0) {
-            location = engine
-                .renderedSequence[engine.renderedSequence.length - 1]
-                .location || "farmhouse-day";
+        // iterate through the array backwards until you find an item with a location
+        for (var i = engine.renderedSequence.length - 1; i >= 0; i--) {
+            if (engine.renderedSequence[i].location) {
+                location = engine
+                    .renderedSequence[i]
+                    .location;
+                break;
+            }
         }
 
         return (<div>

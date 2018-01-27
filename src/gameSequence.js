@@ -1,18 +1,15 @@
 module.exports = [
     {
-        location: "farmhouse-day",
+        location: "farmhouse-night",
         character: 'player',
         text: 'Hello, HAL. Do you read me, HAL?'
     }, {
-        location: "farmhouse-day",
         character: 'entity',
         text: 'Affirmative, Dave. I read you.'
     }, {
-        location: "farmhouse-day",
         character: 'player',
         text: 'Open the pod bay doors, HAL.'
     }, {
-        location: "farmhouse-day",
         character: 'entity',
         text: "I'm sorry, Dave. I'm afraid I can't do that."
     }, {
@@ -23,11 +20,9 @@ module.exports = [
                 text: "Why the hell not, HAL?",
                 sequence: [
                     {
-                        location: "farmhouse-day",
                         character: 'player',
                         text: 'Why the hell not, HAL?'
                     }, {
-                        location: "farmhouse-day",
                         character: 'entity',
                         text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage."
                     }
@@ -76,11 +71,9 @@ module.exports = [
                 text: "🤔",
                 sequence: [
                     {
-                        location: "farmhouse-day",
                         character: 'player',
                         text: '🤔'
                     }, {
-                        location: "farmhouse-day",
                         character: 'entity',
                         text: "¯\\_(ツ)_/¯"
                     }
