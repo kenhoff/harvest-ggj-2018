@@ -11,16 +11,16 @@ class Engine {
         this.gameSequence = [
             {
                 character: 'player',
-                text: 'Hello, HAL. Do you read me, HAL?',
+                text: 'Hello, HAL. Do you read me, HAL?'
             }, {
                 character: 'entity',
-                text: 'Affirmative, Dave. I read you.',
+                text: 'Affirmative, Dave. I read you.'
             }, {
                 character: 'player',
-                text: 'Open the pod bay doors, HAL.',
+                text: 'Open the pod bay doors, HAL.'
             }, {
                 character: 'entity',
-                text: "I'm sorry, Dave. I'm afraid I can't do that.",
+                text: "I'm sorry, Dave. I'm afraid I can't do that."
             }, {
                 type: "options",
                 options: [
@@ -30,11 +30,11 @@ class Engine {
                         sequence: [
                             {
                                 character: 'player',
-                                text: 'Why the hell not, HAL?',
+                                text: 'Why the hell not, HAL?'
                             }, {
                                 character: 'entity',
-                                text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage.",
-                            },
+                                text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage."
+                            }
                         ]
                     }, {
                         id: "sounds-good",
@@ -42,11 +42,11 @@ class Engine {
                         sequence: [
                             {
                                 character: 'player',
-                                text: 'Okay, sounds good. Have a nice day!',
+                                text: 'Okay, sounds good. Have a nice day!'
                             }, {
                                 character: 'entity',
-                                text: "Thank you for shopping at HAL's discount spaceship parts!",
-                            },
+                                text: "Thank you for shopping at HAL's discount spaceship parts!"
+                            }
                         ]
                     }, {
                         id: "thinking",
@@ -54,23 +54,23 @@ class Engine {
                         sequence: [
                             {
                                 character: 'player',
-                                text: '🤔',
+                                text: '🤔'
                             }, {
                                 character: 'entity',
-                                text: "¯\\_(ツ)_/¯",
-                            },
-                        ],
-                    },
-                ],
+                                text: "¯\\_(ツ)_/¯"
+                            }
+                        ]
+                    }
+                ]
             }, {
                 character: 'entity',
-                text: "What a great conversation. See you next time!",
+                text: "What a great conversation. See you next time!"
             }, {
                 character: 'player',
-                text: "Wait. HAL. HAL don't you hang up on me. HAL? HAL?? HAAAAAAAAAAAAAAAAAAAAAAAAL",
-            },
+                text: "Wait. HAL. HAL don't you hang up on me. HAL? HAL?? HAAAAAAAAAAAAAAAAAAAAAAAAL"
+            }
         ];
-        this.parentSequence = null;
+        this.parentSequence = [];
         this.currentSequence = this.gameSequence;
         this.renderedSequence = [];
         this.renderedOptions = [];
@@ -81,7 +81,7 @@ class Engine {
         setTimeout(() => {
             this.renderedSequence = [
                 ...this.renderedSequence,
-                this.currentSequence[this.currentIndexInSequence],
+                this.currentSequence[this.currentIndexInSequence]
             ]
             this.update()
             // console.log("setting next step in sequence");
@@ -107,7 +107,7 @@ class Engine {
             setTimeout(() => {
                 this.renderedSequence = [
                     ...this.renderedSequence,
-                    this.currentSequence[this.currentIndexInSequence],
+                    this.currentSequence[this.currentIndexInSequence]
                 ]
                 this.nextStepInSequence();
                 this.update()
@@ -126,7 +126,7 @@ class Engine {
         this.currentIndexInSequence = 0;
         this.renderedSequence = [
             ...this.renderedSequence,
-            this.currentSequence[this.currentIndexInSequence],
+            this.currentSequence[this.currentIndexInSequence]
         ]
         this.renderedOptions = []
         this.update()
