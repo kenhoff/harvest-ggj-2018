@@ -15,11 +15,24 @@ body {
     bottom: 5em;
     right: 5em;
     left: 5em;
-    max-height: 5em;
+    max-height: 10em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     overflow-y: hidden;
     padding: 1em;
     border: 1px solid black;
+
+    .player-option {
+        align-self: flex-end;
+    }
+
+    .player-response {
+        align-self: flex-end;
+    }
+
+    .entity-response {
+        align-self: flex-start;
+    }
 }
