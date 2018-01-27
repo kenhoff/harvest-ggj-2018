@@ -7,7 +7,9 @@ class Entry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentView: "start-game"
+            currentView: process.env.NODE_ENV === "production"
+                ? "start-game"
+                : "game-running"
         }
         this.endGame = this
             .endGame
@@ -21,6 +23,7 @@ class Entry extends Component {
             case "start-game":
                 return (<div className="start-game">
                     <h1>Harvest</h1>
+                    <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
                     <button onClick={() => {
                             this.setState({currentView: "game-running"});
                         }}>Click to begin</button>
@@ -29,6 +32,7 @@ class Entry extends Component {
                 return (<Game endGame={this.endGame}></Game>);
             case "credits":
                 return (<div className="credits">
+                    <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
                     <h1>Credits</h1>
                     <p>Darrell</p>
                     <p>Elizabeth</p>

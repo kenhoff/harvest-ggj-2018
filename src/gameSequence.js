@@ -37,11 +37,11 @@ module.exports = [
                 text: "Okay, sounds good. Have a nice day!",
                 sequence: [
                     {
-                        location: "farmhouse-day",
+                        location: "farmhouse-night",
                         character: 'player',
                         text: 'Okay, sounds good. Have a nice day!'
                     }, {
-                        location: "farmhouse-day",
+                        location: "farmhouse-night",
                         character: 'entity',
                         text: "Thank you for shopping at HAL's discount spaceship parts!"
                     }, {
@@ -52,7 +52,7 @@ module.exports = [
                                 text: 'nested option one',
                                 sequence: [
                                     {
-                                        location: "farmhouse-day",
+                                        location: "console",
                                         character: 'player',
                                         text: "I'll take what's behind door number one, hal. "
                                     }
@@ -62,7 +62,7 @@ module.exports = [
                                 text: "nested options two",
                                 sequence: [
                                     {
-                                        location: "farmhouse-day",
+                                        location: "store",
                                         character: 'player',
                                         text: "I'll take what's behind door number two, hal. "
                                     }

@@ -5,8 +5,6 @@ import gameSequence from "./gameSequence";
 
 // const DEFAULT_DELAY = 1000;
 const DEFAULT_DELAY = process.env.DEFAULT_DELAY || 100;
-console.log(process.env.DEFAULT_DELAY);
-console.log(DEFAULT_DELAY);
 
 class Engine {
     constructor() {
@@ -99,8 +97,16 @@ class Game extends React.Component {
         engine.start();
     }
     render() {
+        // get location from most recent sequence thingamabob
+        let location = "farmhouse-day";
+        if (engine.renderedSequence.length != 0) {
+            location = engine
+                .renderedSequence[engine.renderedSequence.length - 1]
+                .location || "farmhouse-day";
+        }
+
         return (<div>
-            <div className="background"></div>
+            <div className={`background ${location}`}></div>
             <div className="dialog-box">
                 {
                     engine
