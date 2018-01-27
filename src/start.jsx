@@ -3,62 +3,71 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import '../styles/main.scss';
 
+// const DEFAULT_DELAY = 1000;
+const DEFAULT_DELAY = 100;
+
 class Engine {
     constructor() {
         this.gameSequence = [
             {
                 character: 'player',
-                text: 'Hello, HAL. Do you read me, HAL?'
+                text: 'Hello, HAL. Do you read me, HAL?',
             }, {
                 character: 'entity',
-                text: 'Affirmative, Dave. I read you.'
+                text: 'Affirmative, Dave. I read you.',
             }, {
                 character: 'player',
-                text: 'Open the pod bay doors, HAL.'
+                text: 'Open the pod bay doors, HAL.',
             }, {
                 character: 'entity',
-                text: "I'm sorry, Dave. I'm afraid I can't do that."
+                text: "I'm sorry, Dave. I'm afraid I can't do that.",
             }, {
                 type: "options",
                 options: [
                     {
                         id: "why-not",
-                        buttonText: "Why the hell not, HAL?",
+                        text: "Why the hell not, HAL?",
                         sequence: [
                             {
                                 character: 'player',
-                                text: 'Why the hell not, HAL?'
+                                text: 'Why the hell not, HAL?',
                             }, {
                                 character: 'entity',
-                                text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage."
-                            },
-                        ],
-                    }, {
-                        id: "sounds-good",
-                        buttonText: "Okay, sounds good. Have a nice day!",
-                        sequence: [
-                            {
-                                character: 'player',
-                                text: 'Okay, sounds good. Have a nice day!'
-                            }, {
-                                character: 'entity',
-                                text: "Thank you for shopping at HAL's discount spaceship parts!"
-                            },
-                        ],
-                    }, {
-                        id: "thinking",
-                        buttonText: "🤔",
-                        sequence: [
-                            {
-                                character: 'player',
-                                text: '🤔'
-                            }, {
-                                character: 'entity',
-                                text: "¯\_(ツ)_/¯"
+                                text: "You dumb, stupid, weak, pathetic, white, white uh, uh guilt, white guilt, milquetoast piece of human garbage.",
                             },
                         ]
+                    }, {
+                        id: "sounds-good",
+                        text: "Okay, sounds good. Have a nice day!",
+                        sequence: [
+                            {
+                                character: 'player',
+                                text: 'Okay, sounds good. Have a nice day!',
+                            }, {
+                                character: 'entity',
+                                text: "Thank you for shopping at HAL's discount spaceship parts!",
+                            },
+                        ]
+                    }, {
+                        id: "thinking",
+                        text: "🤔",
+                        sequence: [
+                            {
+                                character: 'player',
+                                text: '🤔',
+                            }, {
+                                character: 'entity',
+                                text: "¯\\_(ツ)_/¯",
+                            },
+                        ],
                     },
-                ]
+                ],
+            }, {
+                character: 'entity',
+                text: "What a great conversation. See you next time!",
+            }, {
+                character: 'player',
+                text: "Wait. HAL. HAL don't you hang up on me. HAL? HAL?? HAAAAAAAAAAAAAAAAAAAAAAAAL",
             },
         ];
         this.parentSequence = null;
@@ -77,44 +86,51 @@ class Engine {
             this.update()
             // console.log("setting next step in sequence");
             this.nextStepInSequence();
-        }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
+        }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
 
     }
+    startSequence() {}
     nextStepInSequence() {
         this.currentIndexInSequence += 1;
+        if (this.currentIndexInSequence >= this.currentSequence.length) {
+            return
+        }
         if (this.currentSequence[this.currentIndexInSequence].type == "options") {
             setTimeout(() => {
                 this.renderedOptions = this
                     .currentSequence[this.currentIndexInSequence]
                     .options;
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         } else {
             // add dialog option to renderedSequence
-            // console.log("adding dialog option to sequence....");
-            if (this.currentIndexInSequence < this.currentSequence.length) {
-                setTimeout(() => {
-                    this.renderedSequence = [
-                        ...this.renderedSequence,
-                        this.currentSequence[this.currentIndexInSequence],
-                    ]
-                    this.nextStepInSequence();
-                    this.update()
-                }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || 1000));
-            }
+            setTimeout(() => {
+                this.renderedSequence = [
+                    ...this.renderedSequence,
+                    this.currentSequence[this.currentIndexInSequence],
+                ]
+                this.nextStepInSequence();
+                this.update()
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         }
         this.update()
     }
     selectOption(optionID) {
         // get sequence in current option
-        console.log(optionID);
         let option = this
             .renderedOptions
             .find((option) => {
                 return optionID === option.id
             })
         this.currentSequence = option.sequence;
-        console.log(option);
+        this.currentIndexInSequence = 0;
+        this.renderedSequence = [
+            ...this.renderedSequence,
+            this.currentSequence[this.currentIndexInSequence],
+        ]
+        this.renderedOptions = []
+        this.update()
+        this.nextStepInSequence();
     }
 }
 
@@ -135,7 +151,7 @@ class App extends React.Component {
                     engine
                         .renderedSequence
                         .map(dialog => {
-                            return (<div key={Math.random()} className={`${dialog.character}-response`}>
+                            return (<div key={Math.random()} className={`dialog-bit ${dialog.character}-response`}>
                                 {dialog.text}
                             </div>);
                         })
@@ -144,57 +160,15 @@ class App extends React.Component {
                     engine
                         .renderedOptions
                         .map((option) => {
-                            return (<button key={option.id} className="player-option" onClick={() => {
+                            return (<div key={option.id} className="player-option" onClick={() => {
                                     engine.selectOption(option.id);
-                                }}>{option.buttonText}</button>)
+                                }}>{option.text}</div>)
                         })
                 }
             </div>
         </div>);
     }
 }
-// <button className="player-option" onClick={() => {
-//         let newTextBits = [
-//             ...this.state.textBits, {
-//                 character: 'player',
-//                 text: 'Hello, HAL. Do you read me, HAL?'
-//             }, {
-//                 character: 'entity',
-//                 text: 'Affirmative, Dave. I read you.'
-//             },
-//         ];
-//         this.setState({textBits: newTextBits});
-//     }}>
-//     Hello, HAL. Do you read me, HAL?
-// </button>
-// <button className="player-option" onClick={() => {
-//         let newTextBits = [
-//             ...this.state.textBits, {
-//                 character: 'player',
-//                 text: 'Open the pod bay doors, HAL.'
-//             }, {
-//                 character: 'entity',
-//                 text: "I'm sorry, Dave. I'm afraid I can't do that."
-//             },
-//         ];
-//         this.setState({textBits: newTextBits});
-//     }}>
-//     Open the pod bay doors, HAL.
-// </button>
-// <button className="player-option" onClick={() => {
-//         let newTextBits = [
-//             ...this.state.textBits, {
-//                 character: 'player',
-//                 text: 'What are you talking about, HAL?'
-//             }, {
-//                 character: 'entity',
-//                 text: 'This mission is too important for me to allow you to jeopardize it.'
-//             },
-//         ];
-//         this.setState({textBits: newTextBits});
-//     }}>
-//     What are you talking about, HAL?
-// </button>
 export default App;
 ReactDOM.render(<App update={engine.update}/>, document.getElementById('app'));
 engine.start();
