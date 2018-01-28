@@ -30,6 +30,9 @@ class Engine {
                     ...this.renderedSequence,
                     this.currentSequence[this.currentIndexInSequence]
                 ]
+                if (this.currentSequence[this.currentIndexInSequence].audio) {
+                    this.playAudio(this.currentSequence[this.currentIndexInSequence].audio);
+                }
                 this.nextStepInSequence();
                 this.update()
             }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
@@ -63,6 +66,9 @@ class Engine {
                     ...this.renderedSequence,
                     this.currentSequence[this.currentIndexInSequence]
                 ]
+                if (this.currentSequence[this.currentIndexInSequence].audio) {
+                    this.playAudio(this.currentSequence[this.currentIndexInSequence].audio);
+                }
                 this.nextStepInSequence();
                 this.update()
             }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
@@ -82,6 +88,9 @@ class Engine {
                 ...this.renderedSequence,
                 this.currentSequence[this.currentIndexInSequence]
             ]
+            if (this.currentSequence[this.currentIndexInSequence].audio) {
+                this.playAudio(this.currentSequence[this.currentIndexInSequence].audio);
+            }
         }
         this.renderedOptions = []
         this.update()

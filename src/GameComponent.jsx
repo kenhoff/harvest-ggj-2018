@@ -21,6 +21,11 @@ class Game extends React.Component {
                 .props
                 .endGame();
         }
+        engine.playAudio = (audioID) => {
+            this
+                .props
+                .playAudio(audioID);
+        }
         engine.start();
     }
     render() {
@@ -50,9 +55,9 @@ class Game extends React.Component {
                 }
             </div>)
         }
+        // <audio src="/music/Outdoor_Music_Loop_v1.0.ogg" autoPlay="true" loop="true"></audio>
 
         return (<div>
-            <audio src="/music/Outdoor_Music_Loop_v1.0.ogg" autoPlay="true" loop="true"></audio>
             <div className={`background ${location}`}>
                 <div className="dialog-container">
                     {dialogBox}

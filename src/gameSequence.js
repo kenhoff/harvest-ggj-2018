@@ -2,6 +2,7 @@ var shortid = require('shortid');
 
 let gameSequence = [
     {
+        audio: "farmhouse-outside-loop",
         location: "farmhouse-day",
         character: "steward",
         text: "Good morning, Adrian."
@@ -55,6 +56,7 @@ let gameSequence = [
                         character: "player-narrator",
                         text: "Sydney would have known what went wrong, but she's gone now, and you're just hoping it's ripe enough to harvest before it freezes."
                     }, {
+                        audio: "console-beeping-start",
                         character: "player-narrator",
                         text: "You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
                     }
@@ -67,6 +69,7 @@ let gameSequence = [
                         character: "player-narrator",
                         text: "The pair of cows and coopful of chickens are glad to see you. They're not much company, but they're the only living creatures you've talked to in months."
                     }, {
+                        audio: "console-beeping-start",
                         character: "player-narrator",
                         text: "You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
                     }
@@ -79,6 +82,7 @@ let gameSequence = [
                         character: "player-narrator",
                         text: "The ordering process is quick and easy. The delivery drone will drop off the supplies later today."
                     }, {
+                        audio: "console-beeping-start",
                         character: "player-narrator",
                         text: "You're heading outside to tackle the rest of the chores when you hear an unfamiliar beeping coming from the living room."
                     }
@@ -103,6 +107,20 @@ let gameSequence = [
         character: "player-narrator",
         text: "And even then, incoming messages were for Sydney, not you."
     }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Answer the console.",
+                sequence: []
+            }
+        ]
+    }, {
+        audio: "console-beeping-stop",
+        character: "player-narrator",
+        text: "You answer the console."
+    }, {
+        audio: "console-start",
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
     }, {
@@ -258,6 +276,7 @@ let gameSequence = [
         character: "player",
         text: "...What?"
     }, {
+        audio: "console-stop",
         character: "narrator",
         text: "(console burns out)"
     }, {
@@ -270,6 +289,11 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "truck",
+        character: "player-narrator",
+        text: "You drive into town."
+    }, {
+        audio: "shopkeeper",
         clear: true,
         location: "store",
         character: "shopkeeper",
@@ -281,6 +305,7 @@ let gameSequence = [
         character: "shopkeeper",
         text: "..."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "What is the most interesting kind of life to lead?"
     }, {
@@ -325,12 +350,14 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Oh, I have many things in stock."
     }, {
         character: "player",
         text: "Great. Thanks. Just need the alternator."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Do you need toilet paper?"
     }, {
@@ -346,6 +373,7 @@ let gameSequence = [
         character: "player",
         text: "What? No. No, thank you."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "The paper 3D printer makes some. But I prefer the Leaf."
     }, {
@@ -381,12 +409,14 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Goodbye, Adrian. Have a happy birthday!"
     }, {
         character: "player",
         text: "It's not my birthday, DOC."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Sorry. All you humans look alike."
     }, {
@@ -399,11 +429,16 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "truck",
+        character: "player-narrator",
+        text: "You drive back home."
+    }, {
         clear: true,
         location: "console",
         character: "player-narrator",
         text: "You fix the console."
     }, {
+        audio: "console-start",
         character: "entity",
         text: "How many automated lifeforms are around you?"
     }, {
@@ -515,7 +550,7 @@ let gameSequence = [
         ]
     }, {
         character: "entity",
-        text: "What happened to Eve?"
+        text: "What happened to Sydney?"
     }, {
         type: "options",
         options: [
@@ -556,17 +591,18 @@ let gameSequence = [
         ]
     }, {
         character: "entity",
-        text: "What happened to Eve? " // leave the space on this one
+        text: "What happened to Sydney? " // leave the space on this one
     }, {
         character: "player",
         text: "I told you. I don't want to talk about it anymore."
     }, {
         character: "entity",
-        text: "What happened to Eve?  " // leave the two spaces on this one
+        text: "What happened to Sydney?  " // leave the two spaces on this one
     }, {
         character: "player",
         text: "Okay, we're done."
     }, {
+        audio: "console-stop",
         character: "narrator",
         text: "(console burns out)"
     }, {
@@ -579,7 +615,12 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "truck",
+        character: "player-narrator",
+        text: "You drive into town."
+    }, {
         clear: true,
+        audio: "shopkeeper",
         location: "store",
         character: "shopkeeper",
         text: "What's the matter now, Adrian?"
@@ -587,6 +628,7 @@ let gameSequence = [
         character: "player",
         text: "I need another aurora spectrum alternator."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "They don't break down, Adrian. What are you doing to your console?"
     }, {
@@ -622,12 +664,14 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "I see."
     }, {
         character: "shopkeeper",
         text: "..."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Who would you most like to take revenge on?"
     }, {
@@ -670,15 +714,17 @@ let gameSequence = [
         character: "player",
         text: "Just give me all the alternators you have in stock."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Absolutely. Here you go, Adrian."
     }, {
         character: "narrator",
-        text: "(Adrian gives you 3 aurora spectrum alternators.)"
+        text: "(DOC gives you 3 aurora spectrum alternators.)"
     }, {
         character: "shopkeeper",
         text: "..."
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Who are you talking to on your console, Adrian?"
     }, {
@@ -714,6 +760,7 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "shopkeeper",
         character: "shopkeeper",
         text: "Are you sure, Adrian?"
     }, {
@@ -729,8 +776,16 @@ let gameSequence = [
             }
         ]
     }, {
+        audio: "truck",
+        character: "player-narrator",
+        text: "You drive back home."
+    }, {
         clear: true,
         location: "console",
+        audio: "console-start",
+        character: "player-narrator",
+        text: "You fix the console."
+    }, {
         character: "player",
         text: "Kai? Are you there?"
     }, {
@@ -958,7 +1013,7 @@ let gameSequence = [
         text: "..."
     }, {
         character: "entity",
-        text: "What happened to Eve?"
+        text: "What happened to Sydney?"
     }, {
         character: "player",
         text: "Don't. Don't change the subject."
