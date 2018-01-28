@@ -44,7 +44,9 @@ class Game extends React.Component {
                     engine
                         .renderedSequence
                         .map(dialog => {
-                            return (<DialogText key={dialog.text} className={`dialog-bit ${dialog.character}-response`}>
+                            // console.log(dialog.id);
+                            // console.log(dialog.text);
+                            return (<DialogText key={dialog.id} className={`dialog-bit ${dialog.character}-response`}>
                                 {dialog.text}
                             </DialogText>);
                         })

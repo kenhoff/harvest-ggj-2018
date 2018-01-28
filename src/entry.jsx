@@ -57,7 +57,14 @@ class Entry extends Component {
                             <p>
                                 <a href="https://twitter.com/Ippika_">@Ippika_</a>
                             </p>
-
+                        </div>
+                        <div>
+                            <p>
+                                Joshua
+                            </p>
+                            <p>
+                                <a href="https://twitter.com/JoshuaDuChene">@JoshuaDuChene</a>
+                            </p>
                         </div>
                         <div>
                             <p>

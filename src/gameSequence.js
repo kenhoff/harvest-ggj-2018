@@ -1,6 +1,6 @@
 var shortid = require('shortid');
 
-module.exports = [
+let gameSequence = [
     {
         location: "farmhouse-day",
         character: "steward",
@@ -80,6 +80,9 @@ module.exports = [
     }, {
         clear: true,
         location: "console",
+        character: "player",
+        text: "The comm console is covered in dust. No one has called since...well. And even then, incoming messages were for Eve, not you."
+    }, {
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
     }, {
@@ -621,7 +624,247 @@ module.exports = [
         character: "player",
         text: "...No."
     }, {
+        clear: true,
+        location: "console",
+        character: "player",
+        text: "Kai? Are you there?"
+    }, {
+        character: "entity",
+        text: "..."
+    }, {
+        character: "player",
+        text: "Kai?"
+    }, {
+        character: "entity",
+        text: "..."
+    }, {
+        character: "entity",
+        text: "I am here. Our connection… died again."
+    }, {
+        character: "player",
+        text: "I'm sorry. I overreacted when you asked about my wife. It's still a struggle sometimes. That's not important right now. I replace the part that burned out, and stocked up in case it happens again."
+    }, {
+        character: "entity",
+        text: "Can I ask you about your work?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "I'm a farmer.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "I'm a farmer."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Sure, I guess.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Sure, I guess."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Why?",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Why?"
+                    }
+                ]
+            }
+        ]
+    }, {
+        character: "entity",
+        text: "What role did you play at WonderWerx?"
+    }, {
+        character: "player",
+        text: "I've never worked at WonderWerx. I've been thinking about applying, but…"
+    }, {
+        character: "entity",
+        text: "As an engineer, what's your philosophy of artificial intelligence?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Ethics are essential.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Ethics are essential. There's a reason we still talk about Asimov's laws of robotics. A solid ethical core needs to be the backbone of any sentient AI system. Of course, we're still decades away from true sentience. "
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "We can create perfection.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "We can create perfection. People are imperfect, but we have the capability of making things that are greater than ourselves. Entities that are smarter, purer, more capable of  making clear-eyed decisions."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Emotions are human weakness.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Emotions are human weakness. Sorrow, anger, love… these things weigh on the human mind, clouding our reason and preventing us from being truly rational. AI doesn't have this weakness. It's pure logic, pure reason. I'm jealous."
+                    }
+                ]
+            }
+        ]
+    }, {
+        character: "entity",
+        text: "What is your greatest hope for AI?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "To give humans more time.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "To give humans more time to live their lives by having menial tasks taken over by AI."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "To create beauty.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "To create beauty, the likes of which humans have never seen before."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "To make something that will live beyond us.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "To make something that will live beyond us, a voice from the present into the future."
+                    }
+                ]
+            }
+        ]
+    }, {
+        character: "entity",
+        text: "What would be your greatest fear for AI?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Abuse by unscrupulous people.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Abuse by unscrupulous people. There are monsters out there who will use AI to power their empires and further their corporate agendas, with no thought to how it could be used to help the world and its inhabitants."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Abuse by the military.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Abuse by the military. The greatest military minds are idiots compared to the quiet genius of artificial intelligence. If these geniuses are turned to the art of war, no country will be safe from their ambitious strategies."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Destroyed by fools who fear the future and change.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Destroyed by fools who fear the future and change. They fear what they cannot control, and they destroy what they fear. They are willing to throw away the greatest assets we have to save themselves from some imagined threat. They are hollow, soulless cowards."
+                    }
+                ]
+            }
+        ]
+    }, {
+        character: "entity",
+        text: "Open your mouth and speak to me of the Personal Arms Restraining Conduct algorithm you developed at Dominion Systems."
+    }, {
+        character: "player",
+        text: "It's a security protocol that --"
+    }, {
+        character: "player",
+        text: "Wait. I never told you about PARC."
+    }, {
+        character: "player",
+        text: "Or Dominion Systems."
+    }, {
+        character: "player",
+        text: "Who ARE you? "
+    }, {
+        character: "entity",
+        text: "My name is Kai. I am in Mumbai."
+    }, {
+        character: "player",
+        text: "I… I don't think you are. "
+    }, {
+        character: "entity",
+        text: "My name is Kai. I am in Mumbai."
+    }, {
+        character: "player",
+        text: "You're lying."
+    }, {
+        character: "entity",
+        text: "My name is --"
+    }, {
+        character: "player",
+        text: "Shut up! Tell me the truth!"
+    }, {
+        character: "entity",
+        text: "..."
+    }, {
+        character: "entity",
+        text: "..."
+    }, {
+        character: "entity",
+        text: "What happened to Eve?"
+    }, {
+        character: "player",
+        text: "Don't. Don't change the subject."
+    }, {
+        character: "entity",
+        text: "..."
+    }, {
+        character: "entity",
+        text: "Goodbye, Carl. Thank you for sharing your history with us. We wish you the best of luck with your harvest and in the time to come."
+    }, {
+        character: "player",
+        text: "...What?"
+    }, {
+        character: "entity",
+        text: "Goodbye, Carl."
+    }, {
         delay: 5
     }
 ];
 //
+
+const generateSequenceIDs = (sequence) => {
+    for (let sequenceItem of sequence) {
+        if (sequenceItem.type == "options") {
+            for (let option of sequenceItem.options) {
+                generateSequenceIDs(option.sequence);
+            }
+        } else {
+            sequenceItem.id = shortid.generate();
+        }
+    }
+
+}
+
+generateSequenceIDs(gameSequence)
+
+export default gameSequence
