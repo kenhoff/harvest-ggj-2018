@@ -19,6 +19,8 @@ class Entry extends Component {
     }
     componentDidMount() {
         this.outsideLoop = new Howl({src: "/music/Outdoor_Music_Loop_v1.0.ogg", loop: true})
+        this.insideLoop = new Howl({src: "/music/inside_house_music.ogg", loop: true})
+        this.storeLoop = new Howl({src: "/music/store_music.ogg", loop: true})
         this.consoleBeeping = new Howl({src: "/sounds/Console_Notification_Loop.ogg", loop: true, volume: 0.25})
         this.consoleStart = new Howl({src: "/sounds/Console_Start.ogg"})
         this.consoleStop = new Howl({src: "/sounds/Console_Crash.ogg"})
@@ -37,6 +39,34 @@ class Entry extends Component {
             this
                 .outsideLoop
                 .play();
+            this
+                .insideLoop
+                .stop();
+            this
+                .storeLoop
+                .stop();
+        } else if (audioID === "farmhouse-inside-loop") {
+            this
+                .outsideLoop
+                .stop();
+            this
+                .insideLoop
+                .play();
+            this
+                .storeLoop
+                .stop();
+
+        } else if (audioID === "store-loop") {
+            this
+                .outsideLoop
+                .stop();
+            this
+                .insideLoop
+                .stop();
+            this
+                .storeLoop
+                .play();
+
         } else if (audioID === "console-beeping-start") {
             this
                 .consoleBeeping

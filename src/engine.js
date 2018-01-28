@@ -40,6 +40,16 @@ class Engine {
         }
 
     }
+    playAudio(arrayOrString) {
+        console.log(arrayOrString);
+        if (typeof arrayOrString === 'string') {
+            this.dispatchAudio(arrayOrString)
+        } else if (Array.isArray(arrayOrString)) {
+            for (let audioID of arrayOrString) {
+                this.dispatchAudio(audioID)
+            }
+        }
+    }
     nextStepInSequence() {
         this.currentIndexInSequence += 1;
         if (this.currentIndexInSequence >= this.currentSequence.length) {

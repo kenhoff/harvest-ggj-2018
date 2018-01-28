@@ -100,6 +100,7 @@ let gameSequence = [
         ]
     }, {
         clear: true,
+        audio: "farmhouse-inside-loop",
         location: "console-off",
         character: "player-narrator",
         text: "The comm console is covered in dust. No one has called since...well."
@@ -295,7 +296,9 @@ let gameSequence = [
         character: "player-narrator",
         text: "You drive into town."
     }, {
-        audio: "shopkeeper",
+        audio: [
+            "shopkeeper", "farmhouse-outside-loop"
+        ],
         clear: true,
         location: "store",
         character: "shopkeeper",
@@ -435,6 +438,7 @@ let gameSequence = [
         character: "player-narrator",
         text: "You drive back home."
     }, {
+        audio: ["farmhouse-inside-loop"],
         clear: true,
         location: "console-on",
         character: "player-narrator",
@@ -623,7 +627,9 @@ let gameSequence = [
         text: "You drive into town."
     }, {
         clear: true,
-        audio: "shopkeeper",
+        audio: [
+            "shopkeeper", "farmhouse-outside-loop"
+        ],
         location: "store",
         character: "shopkeeper",
         text: "What's the matter now, Adrian?"
@@ -783,9 +789,11 @@ let gameSequence = [
         character: "player-narrator",
         text: "You drive back home."
     }, {
+        audio: [
+            "console-start", "farmhouse-inside-loop"
+        ],
         clear: true,
         location: "console-on",
-        audio: "console-start",
         character: "player-narrator",
         text: "You fix the console."
     }, {

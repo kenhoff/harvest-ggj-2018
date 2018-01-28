@@ -21,7 +21,7 @@ class Game extends React.Component {
                 .props
                 .endGame();
         }
-        engine.playAudio = (audioID) => {
+        engine.dispatchAudio = (audioID) => {
             this
                 .props
                 .playAudio(audioID);
