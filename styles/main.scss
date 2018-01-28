@@ -13,6 +13,13 @@ body {
     flex-direction: column;
 }
 
+.start-game {
+    background-image: url("/art/Farmhouse_outside_colornight.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
 .credits {
     color: white;
     background-color: black;
