@@ -7,6 +7,12 @@ import DialogText from "./DialogText.jsx";
 let engine = new Engine();
 
 class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentLocation: "farmhouse-day"
+        }
+    }
     componentDidMount() {
         engine.update = () => {
             this.forceUpdate();
