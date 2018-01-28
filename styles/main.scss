@@ -22,6 +22,9 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: lightgray;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     &.farmhouse-day {
         background-image: url("/art/farmhouse-day-mockup.jpg");
@@ -74,5 +77,10 @@ body {
 
     .entity-response {
         text-align: left;
+    }
+
+    .narrator-response {
+        font-style: italic;
+        text-align: center;
     }
 }
