@@ -35,43 +35,53 @@ class Entry extends Component {
         this
             .themeMusic
             .play();
+        this
+            .themeMusic
+            .fade(0, 1, 2000);
+
     }
     playAudio(audioID) {
-        console.log(audioID);
+        // console.log(audioID);
         if (audioID === "farmhouse-outside-loop") {
             this
                 .themeMusic
-                .stop();
+                .fade(1, 0, 2000);
+            this
+                .insideLoop
+                .fade(1, 0, 2000)
+            setTimeout(() => {
+                this
+                    .themeMusic
+                    .stop();
+                this
+                    .insideLoop
+                    .stop();
+            }, 2000);
             this
                 .outsideLoop
                 .play();
             this
-                .insideLoop
-                .stop();
-            this
-                .storeLoop
-                .stop();
+                .outsideLoop
+                .fade(0, 1, 2000);
         } else if (audioID === "farmhouse-inside-loop") {
+            // fade out outside loop
             this
                 .outsideLoop
-                .stop();
-            this
-                .insideLoop
-                .play();
-            this
-                .storeLoop
-                .stop();
+                .fade(1, 0, 2000)
+            setTimeout(() => {
+                this
+                    .outsideLoop
+                    .stop();
+            }, 2000);
 
-        } else if (audioID === "store-loop") {
-            this
-                .outsideLoop
-                .stop();
+            // fade in inside loop
+
             this
                 .insideLoop
-                .stop();
-            this
-                .storeLoop
                 .play();
+            this
+                .insideLoop
+                .fade(0, 1, 2000);
 
         } else if (audioID === "console-beeping-start") {
             this
@@ -129,13 +139,19 @@ class Entry extends Component {
         clearTimeout(this.consoleLoopTimeout);
         this
             .outsideLoop
-            .stop();
+            .fade(1, 0, 2000);
         this
             .insideLoop
-            .stop();
-        this
-            .storeLoop
-            .stop();
+            .fade(1, 0, 2000);
+
+        setTimeout(function() {
+            this
+                .outsideLoop
+                .stop();
+            this
+                .insideLoop
+                .stop();
+        }, 2000);
         this
             .consoleStart
             .stop();
@@ -148,6 +164,9 @@ class Entry extends Component {
         this
             .themeMusic
             .play();
+        this
+            .themeMusic
+            .fade(0, 1, 2000)
     }
     render() {
         // <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>

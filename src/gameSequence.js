@@ -21,12 +21,14 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "Steward, what's on the list for today?",
-                sequence: []
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Steward, what's on the list for today?"
+                    }
+                ]
             }
         ]
-    }, {
-        character: "player",
-        text: "Steward, what's on the list for today?"
     }, {
         character: "steward",
         text: "Today you must:"
@@ -95,7 +97,12 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(Investigate the beeping.)",
-                sequence: []
+                sequence: [
+                    {
+                        character: "player-narrator",
+                        text: "You head inside to investigate the beeping."
+                    }
+                ]
             }
         ]
     }, {
@@ -113,16 +120,19 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(Answer the console.)",
-                sequence: []
+                sequence: [
+                    {
+                        location: "console-on",
+                        audio: [
+                            "console-beeping-stop", "console-start"
+                        ],
+                        character: "player-narrator",
+                        text: "You answer the console."
+                    }
+                ]
             }
         ]
     }, {
-        audio: "console-beeping-stop",
-        character: "player-narrator",
-        text: "You answer the console."
-    }, {
-        location: "console-on",
-        audio: "console-start",
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
     }, {
@@ -288,14 +298,17 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(Drive into town to pick up a new aurora spectrum alternator.)",
-                sequence: []
+                sequence: [
+                    {
+                        audio: "truck",
+                        character: "player-narrator",
+                        text: "You drive into town."
+                    }
+                ]
             }
         ]
     }, {
-        audio: "truck",
-        character: "player-narrator",
-        text: "You drive into town."
-    }, {
+        delay: 5,
         audio: [
             "shopkeeper", "farmhouse-outside-loop"
         ],
@@ -374,12 +387,14 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "What?",
-                sequence: []
+                sequence: [
+                    {
+                        character: "player",
+                        text: "What? No. No, thank you."
+                    }
+                ]
             }
         ]
-    }, {
-        character: "player",
-        text: "What? No. No, thank you."
     }, {
         audio: "shopkeeper",
         character: "shopkeeper",
@@ -433,14 +448,18 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(Head back home.)",
-                sequence: []
+                sequence: [
+
+                    {
+                        audio: "truck",
+                        character: "player-narrator",
+                        text: "You drive back home."
+                    }
+                ]
             }
         ]
     }, {
-        audio: "truck",
-        character: "player-narrator",
-        text: "You drive back home."
-    }, {
+        delay: 5,
         audio: ["farmhouse-inside-loop"],
         clear: true,
         location: "console-off",
@@ -620,28 +639,33 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(End Transmission)",
-                sequence: []
+                sequence: [
+                    {
+                        location: "console-off",
+                        audio: "console-stop",
+                        character: "narrator",
+                        text: "The console start to whine and shake as you end the connection. It's hot to the touch. With a pop, smoke starts to snake out the back and you know that you've burned out another aurora spectrum alternator."
+                    }
+                ]
             }
         ]
-    }, {
-        location: "console-off",
-        audio: "console-stop",
-        character: "narrator",
-        text: "The console start to whine and shake as you end the connection. It's hot to the touch. With a pop, smoke starts to snake out the back and you know that you've burned out another aurora spectrum alternator."
     }, {
         type: "options",
         options: [
             {
                 id: shortid.generate(),
                 text: "(Drive into town to get another aurora spectrum alternator.)",
-                sequence: []
+                sequence: [
+                    {
+                        audio: "truck",
+                        character: "player-narrator",
+                        text: "You drive into town."
+                    }
+                ]
             }
         ]
     }, {
-        audio: "truck",
-        character: "player-narrator",
-        text: "You drive into town."
-    }, {
+        delay: 5,
         clear: true,
         audio: [
             "shopkeeper", "farmhouse-outside-loop"
@@ -794,13 +818,15 @@ let gameSequence = [
             {
                 id: shortid.generate(),
                 text: "(Head back home.)",
-                sequence: []
+                sequence: [
+                    {
+                        audio: "truck",
+                        character: "player-narrator",
+                        text: "You drive back home."
+                    }
+                ]
             }
         ]
-    }, {
-        audio: "truck",
-        character: "player-narrator",
-        text: "You drive back home."
     }, {
         audio: ["farmhouse-inside-loop"],
         clear: true,

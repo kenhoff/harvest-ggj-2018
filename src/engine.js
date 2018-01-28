@@ -15,26 +15,26 @@ class Engine {
         this.currentIndexInSequence = 0;
 
         if (this.currentSequence[this.currentIndexInSequence].type == "options") {
-            setTimeout(() => {
-                this.renderedOptions = this.currentSequence[this.currentIndexInSequence].options;
-                this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
+            this.renderedOptions = this.currentSequence[this.currentIndexInSequence].options;
+            this.update()
+            // setTimeout(() => {
+            // }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         } else {
             // add dialog option to renderedSequence
-            setTimeout(() => {
-                if (this.currentSequence[this.currentIndexInSequence].clear) {
-                    this.renderedSequence = [];
-                }
-                this.renderedSequence = [
-                    ...this.renderedSequence,
-                    this.currentSequence[this.currentIndexInSequence]
-                ]
-                if (this.currentSequence[this.currentIndexInSequence].audio) {
-                    this.playAudio(this.currentSequence[this.currentIndexInSequence].audio);
-                }
-                this.nextStepInSequence();
-                this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
+            if (this.currentSequence[this.currentIndexInSequence].clear) {
+                this.renderedSequence = [];
+            }
+            this.renderedSequence = [
+                ...this.renderedSequence,
+                this.currentSequence[this.currentIndexInSequence]
+            ]
+            if (this.currentSequence[this.currentIndexInSequence].audio) {
+                this.playAudio(this.currentSequence[this.currentIndexInSequence].audio);
+            }
+            this.nextStepInSequence();
+            this.update()
+            // setTimeout(() => {
+            // }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
 
         }
 
