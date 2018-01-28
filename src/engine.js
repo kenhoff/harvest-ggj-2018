@@ -13,14 +13,35 @@ class Engine {
     }
     start() {
         this.currentIndexInSequence = 0;
-        setTimeout(() => {
-            this.renderedSequence = [
-                ...this.renderedSequence,
-                this.currentSequence[this.currentIndexInSequence]
-            ]
-            this.update()
-            this.nextStepInSequence();
-        }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+        // setTimeout(() => {
+        //     this.renderedSequence = [
+        //         ...this.renderedSequence,
+        //         this.currentSequence[this.currentIndexInSequence]
+        //     ]
+        //     this.update()
+        //     this.nextStepInSequence();
+        // }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+
+        if (this.currentSequence[this.currentIndexInSequence].type == "options") {
+            setTimeout(() => {
+                this.renderedOptions = this.currentSequence[this.currentIndexInSequence].options;
+                this.update()
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+        } else {
+            // add dialog option to renderedSequence
+            setTimeout(() => {
+                if (this.currentSequence[this.currentIndexInSequence].clear) {
+                    this.renderedSequence = [];
+                }
+                this.renderedSequence = [
+                    ...this.renderedSequence,
+                    this.currentSequence[this.currentIndexInSequence]
+                ]
+                this.nextStepInSequence();
+                this.update()
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+
+        }
 
     }
     nextStepInSequence() {
@@ -60,13 +81,15 @@ class Engine {
         let option = this.renderedOptions.find((option) => {
             return optionID === option.id
         })
-        this.parentSequences.push({sequence: this.currentSequence, index: this.currentIndexInSequence})
-        this.currentSequence = option.sequence;
-        this.currentIndexInSequence = 0;
-        this.renderedSequence = [
-            ...this.renderedSequence,
-            this.currentSequence[this.currentIndexInSequence]
-        ]
+        if (!option.sequence || option.sequence.length > 0) {
+            this.parentSequences.push({sequence: this.currentSequence, index: this.currentIndexInSequence})
+            this.currentSequence = option.sequence;
+            this.currentIndexInSequence = 0;
+            this.renderedSequence = [
+                ...this.renderedSequence,
+                this.currentSequence[this.currentIndexInSequence]
+            ]
+        }
         this.renderedOptions = []
         this.update()
         this.nextStepInSequence();

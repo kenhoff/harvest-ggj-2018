@@ -2,6 +2,80 @@ var shortid = require('shortid');
 
 module.exports = [
     {
+        location: "farmhouse-day",
+        character: "steward",
+        text: "Good morning, Carl. This is your Steward Citizen Home Lifestyle Maintenance System. The time is 5:00 AM, and it's time to get up."
+    }, {
+        character: "steward",
+        text: "Don't forget: you must prepare the corn for reaping before the frost this weekend. "
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Steward, what's on the list for today?",
+                sequence: []
+            }
+        ]
+    }, {
+        character: "steward",
+        text: "Today you must:"
+    }, {
+        character: "steward",
+        text: "Feed the livestock."
+    }, {
+        character: "steward",
+        text: "Order fertilizer for next season."
+    }, {
+        character: "steward",
+        text: "Don't forget: you must prepare the corn for reaping before the frost this weekend."
+    }, {
+        character: "steward",
+        text: "What will you do first, Carl?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "(Prepare the corn.)",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "You're not sure what you did wrong with the corn. It should be ripe by now. Eve would have known what went wrong, but she's gone now, and you're just hoping it's ripe enough to harvest before it freezes. You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "(Feed the livestock.)",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "The pair of cows and coopful of chickens are glad to see you. They're not much company, but they're the only living creatures you've talked to in months. You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
+                    }
+
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "(Order fertilizer.)",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "The ordering process is quick and easy. The delivery drone will drop off the supplies later today. You're heading outside to tackle the rest of the chores when you hear an unfamiliar beeping coming from the living room."
+                    }
+                ]
+            }
+        ]
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "(Investigate the beeping.)",
+                sequence: []
+            }
+        ]
+    }, {
+        clear: true,
         location: "console",
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
@@ -152,7 +226,15 @@ module.exports = [
         character: "narrator",
         text: "(console burns out)"
     }, {
-        delay: 3,
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Drive into town to pick up a new aurora spectrum alternator.",
+                sequence: []
+            }
+        ]
+    }, {
         clear: true,
         location: "store",
         character: "shopkeeper",
@@ -252,8 +334,17 @@ module.exports = [
         character: "shopkeeper",
         text: "Sorry. All you humans look alike."
     }, {
-        delay: 3,
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Head back home.",
+                sequence: []
+            }
+        ]
+    }, {
         clear: true,
+        location: "console",
         character: "entity",
         text: "How many automated lifeforms are around you?"
     }, {
@@ -268,14 +359,12 @@ module.exports = [
             {
                 id: shortid.generate(),
                 text: "None.",
-                sequence: [
-                    {
-                        character: "player",
-                        text: "None. It's a small farm. I don't need the help."
-                    }
-                ]
+                sequence: []
             }
         ]
+    }, {
+        character: "player",
+        text: "None. It's a small farm. I don't need the help."
     }, {
         character: "entity",
         text: "But help would be make your harvest more efficient."
@@ -285,14 +374,12 @@ module.exports = [
             {
                 id: shortid.generate(),
                 text: "We used to have one.",
-                sequence: [
-                    {
-                        character: "player",
-                        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn. When it got too expensive to fix, we scrapped it."
-                    }
-                ]
+                sequence: []
             }
         ]
+    }, {
+        character: "player",
+        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn. When it got too expensive to fix, we scrapped it."
     }, {
         character: "entity",
         text: "Scrapped? That seems inefficient."
@@ -302,14 +389,12 @@ module.exports = [
             {
                 id: shortid.generate(),
                 text: "Why do you want to know?",
-                sequence: [
-                    {
-                        character: "player",
-                        text: "Why do you want to know?"
-                    }
-                ]
+                sequence: []
             }
         ]
+    }, {
+        character: "player",
+        text: "Why do you want to know?"
     }, {
         character: "entity",
         text: "I just wonder how… fast the… bots spread where you were. How widespread they were outside the cities."
@@ -400,7 +485,15 @@ module.exports = [
         character: "narrator",
         text: "(console burns out)"
     }, {
-        delay: 3,
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Drive into town to get another aurora spectrum alternator.",
+                sequence: []
+            }
+        ]
+    }, {
         clear: true,
         location: "store",
         character: "shopkeeper",

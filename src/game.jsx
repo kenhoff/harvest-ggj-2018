@@ -29,9 +29,10 @@ class Game extends React.Component {
             }
         }
 
-        return (<div>
-            <div className={`background ${location}`}></div>
-            <div className="dialog-box">
+        let dialogBox = null;
+        if (engine.renderedSequence.length > 0) {
+
+            dialogBox = (<div className="dialog-box">
                 {
                     engine
                         .renderedSequence
@@ -41,15 +42,25 @@ class Game extends React.Component {
                             </div>);
                         })
                 }
-                {
-                    engine
-                        .renderedOptions
-                        .map((option) => {
-                            return (<div key={option.id} className="player-option" onClick={() => {
-                                    engine.selectOption(option.id);
-                                }}>{option.text}</div>)
-                        })
-                }
+            </div>)
+        }
+
+        return (<div>
+            <div className={`background ${location}`}>
+                <div className="dialog-container">
+                    {dialogBox}
+                    <div className="responses">
+                        {
+                            engine
+                                .renderedOptions
+                                .map((option) => {
+                                    return (<div key={option.id} className="player-option" onClick={() => {
+                                            engine.selectOption(option.id);
+                                        }}>{option.text}</div>)
+                                })
+                        }
+                    </div>
+                </div>
             </div>
         </div>);
     }

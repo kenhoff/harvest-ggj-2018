@@ -21,6 +21,7 @@ body {
 .background {
     height: 100vh;
     width: 100vw;
+    position: relative;
     background-color: lightgray;
     background-position: center;
     background-size: cover;
@@ -43,18 +44,21 @@ body {
     }
 }
 
-.dialog-box {
+.dialog-container {
     position: absolute;
-    background-color: darkgray;
-    bottom: 5em;
     right: 5em;
     left: 5em;
+    bottom: 0;
+}
+
+.dialog-box {
+    background-color: darkgray;
     // max-height: 10em;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: stretch;
-    overflow-y: hidden;
+    overflow-y: scroll;
     padding: 1em;
     border: 1px solid black;
 
@@ -62,21 +66,13 @@ body {
         margin-top: 0.5em;
     }
 
-    .player-option {
-        background-color: white;
-        cursor: pointer;
-        align-self: flex-end;
-        border: 1px solid black;
-        padding: 0.2em 0.4em;
-        margin: 0.2em;
-    }
-
     .player-response {
         text-align: right;
         margin-left: 5em;
     }
 
-    .entity-response {
+    .entity-response,
+    .shopkeeper-response {
         margin-right: 5em;
         text-align: left;
     }
@@ -86,5 +82,20 @@ body {
         margin-right: 5em;
         font-style: italic;
         text-align: center;
+    }
+}
+
+.responses {
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .player-option {
+        background-color: white;
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 0.2em 0.4em;
+        margin-top: 0.2em;
     }
 }
