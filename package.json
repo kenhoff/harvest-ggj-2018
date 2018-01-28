@@ -25,6 +25,7 @@
         "postinstall": "webpack"
     },
     "engines": {
-        "node": "9.4.x"
+        "node": "9.4.x",
+        "yarn": "1.3.x"
     }
 }
