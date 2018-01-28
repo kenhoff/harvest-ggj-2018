@@ -1,7 +1,8 @@
 import gameSequence from "./gameSequence";
 // const DEFAULT_DELAY = 1000;
-const DELAY_MODIFIER = process.env.DELAY_MODIFIER || .1;
-const DEFAULT_DELAY = process.env.DEFAULT_DELAY || 1000;
+const DELAY_MODIFIER = process.env.DELAY_MODIFIER;
+const DEFAULT_DELAY = process.env.DEFAULT_DELAY;
+console.log(DEFAULT_DELAY);
 
 class Engine {
     constructor() {
@@ -18,7 +19,7 @@ class Engine {
             setTimeout(() => {
                 this.renderedOptions = this.currentSequence[this.currentIndexInSequence].options;
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         } else {
             // add dialog option to renderedSequence
             setTimeout(() => {
@@ -31,7 +32,7 @@ class Engine {
                 ]
                 this.nextStepInSequence();
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
 
         }
 
@@ -51,7 +52,7 @@ class Engine {
             setTimeout(() => {
                 this.renderedOptions = this.currentSequence[this.currentIndexInSequence].options;
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         } else {
             // add dialog option to renderedSequence
             setTimeout(() => {
@@ -64,7 +65,7 @@ class Engine {
                 ]
                 this.nextStepInSequence();
                 this.update()
-            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
+            }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000) || DEFAULT_DELAY));
         }
         this.update()
     }
