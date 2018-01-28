@@ -1104,7 +1104,7 @@ let gameSequence = [
         character: "player",
         text: "Kai?"
     }, {
-        character: "player",
+        character: "entity",
         text: "..."
     }, {
         character: "player",
@@ -1113,7 +1113,6 @@ let gameSequence = [
         delay: 5
     }
 ];
-//
 
 const generateSequenceIDs = (sequence) => {
     for (let sequenceItem of sequence) {
