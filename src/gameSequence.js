@@ -281,7 +281,7 @@ let gameSequence = [
         location: "console-off",
         audio: "console-stop",
         character: "narrator",
-        text: "(console burns out)"
+        text: "The console whines, shakes, pops… and goes dead. It seems to have burned out its aurora spectrum alternator."
     }, {
         type: "options",
         options: [
@@ -440,11 +440,15 @@ let gameSequence = [
     }, {
         audio: ["farmhouse-inside-loop"],
         clear: true,
-        location: "console-on",
+        location: "console-off",
         character: "player-narrator",
-        text: "You fix the console."
+        text: "When you get home, it only takes you a few minutes to remove the console's burned-out alternator. Dust coats the inside of the device; you feel lucky it didn't catch on fire."
     }, {
+        location: "console-on",
         audio: "console-start",
+        character: "player-narrator",
+        text: "You blow the console out, seal it up, and turn it back on. It immediately lights up and beeps. Kai wants to speak with you."
+    }, {
         character: "entity",
         text: "How many automated lifeforms are around you?"
     }, {
@@ -611,7 +615,7 @@ let gameSequence = [
         location: "console-off",
         audio: "console-stop",
         character: "narrator",
-        text: "(console burns out)"
+        text: "The console start to whine and shake as you end the connection. It's hot to the touch. With a pop, smoke starts to snake out the back and you know that you've burned out another aurora spectrum alternator."
     }, {
         type: "options",
         options: [
@@ -789,13 +793,16 @@ let gameSequence = [
         character: "player-narrator",
         text: "You drive back home."
     }, {
-        audio: [
-            "console-start", "farmhouse-inside-loop"
-        ],
+        audio: ["farmhouse-inside-loop"],
         clear: true,
+        location: "console-off",
+        character: "player-narrator",
+        text: "The burned-out alternator is stuck tight inside the console. It looks like it might have melted a little bit. You need your professional tools -- some of which you haven't used since moving to the farm -- to pull it out."
+    }, {
+        audio: ["console-start"],
         location: "console-on",
         character: "player-narrator",
-        text: "You fix the console."
+        text: "You slot in a new alternator and try to call Kai back."
     }, {
         character: "player",
         text: "Kai? Are you there?"
