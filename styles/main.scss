@@ -73,13 +73,17 @@ body {
 
     .player-response {
         text-align: right;
+        margin-left: 5em;
     }
 
     .entity-response {
+        margin-right: 5em;
         text-align: left;
     }
 
     .narrator-response {
+        margin-left: 5em;
+        margin-right: 5em;
         font-style: italic;
         text-align: center;
     }

@@ -21,5 +21,5 @@ module.exports = {
         ]
     },
     devtool: "cheap-module-eval-source-map",
-    plugins: [new webpack.EnvironmentPlugin({"DEFAULT_DELAY": 100, "NODE_ENV": "development"})]
+    plugins: [new webpack.EnvironmentPlugin({"DELAY_MODIFIER": 1, "DEFAULT_DELAY": 1000, "NODE_ENV": "development"})]
 }

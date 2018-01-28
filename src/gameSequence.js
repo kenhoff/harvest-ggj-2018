@@ -150,8 +150,10 @@ module.exports = [
         text: "...What?"
     }, {
         character: "narrator",
-        text: "(console burns out the first time)"
+        text: "(console burns out)"
     }, {
+        delay: 3,
+        clear: true,
         location: "store",
         character: "shopkeeper",
         text: "Hello, Carl. What brings you in today?"
@@ -250,6 +252,8 @@ module.exports = [
         character: "shopkeeper",
         text: "Sorry. All you humans look alike."
     }, {
+        delay: 3,
+        clear: true,
         character: "entity",
         text: "How many automated lifeforms are around you?"
     }, {
@@ -396,6 +400,8 @@ module.exports = [
         character: "narrator",
         text: "(console burns out)"
     }, {
+        delay: 3,
+        clear: true,
         location: "store",
         character: "shopkeeper",
         text: "What's the matter now, Carl?"
