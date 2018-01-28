@@ -38,7 +38,7 @@ let gameSequence = [
         text: "- Order fertilizer for next season."
     }, {
         character: "steward",
-        text: "- Don't forget: you must prepare the corn for reaping before the frost this weekend."
+        text: "- And of course, prepare the corn for reaping before the frost. "
     }, {
         character: "steward",
         text: "What will you do first, Adrian?"
@@ -362,6 +362,9 @@ let gameSequence = [
         character: "player",
         text: "Great. Thanks. Just need the alternator."
     }, {
+        character: "narrator",
+        text: "(DOC gives you an aurora spectrum alternator.)"
+    }, {
         audio: "shopkeeper",
         character: "shopkeeper",
         text: "Do you need toilet paper?"
@@ -611,6 +614,15 @@ let gameSequence = [
     }, {
         character: "player",
         text: "Okay, we're done."
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "(End Transmission)",
+                sequence: []
+            }
+        ]
     }, {
         location: "console-off",
         audio: "console-stop",

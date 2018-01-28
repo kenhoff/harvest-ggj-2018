@@ -18,6 +18,7 @@ class Entry extends Component {
             .bind(this);
     }
     componentDidMount() {
+        this.themeMusic = new Howl({src: "/music/Theme_Song_Loop_v1.0.ogg", loop: true})
         this.outsideLoop = new Howl({src: "/music/Outdoor_Music_Loop_v1.0.ogg", loop: true})
         this.insideLoop = new Howl({src: "/music/inside_house_music.ogg", loop: true})
         this.storeLoop = new Howl({src: "/music/store_music.ogg", loop: true})
@@ -31,10 +32,15 @@ class Entry extends Component {
         this.shopkeeper3 = new Howl({src: "/sounds/robot3.ogg"})
         this.shopkeeper4 = new Howl({src: "/sounds/robot4.ogg"})
         this.shopkeeperAudio = [this.shopkeeper1, this.shopkeeper2, this.shopkeeper3, this.shopkeeper4];
-
+        this
+            .themeMusic
+            .play();
     }
     playAudio(audioID) {
         if (audioID === "farmhouse-outside-loop") {
+            this
+                .themeMusic
+                .stop();
             this
                 .outsideLoop
                 .play();
@@ -118,15 +124,37 @@ class Entry extends Component {
     }
     endGame() {
         this.setState({currentView: "credits"});
-        Howler.unload();
+        // Howler.unload();
+        clearTimeout(this.consoleLoopTimeout);
+        this
+            .outsideLoop
+            .stop();
+        this
+            .insideLoop
+            .stop();
+        this
+            .storeLoop
+            .stop();
+        this
+            .consoleStart
+            .stop();
+        this
+            .consoleLoop
+            .stop();
+        this
+            .consoleStop
+            .play();
+        this
+            .themeMusic
+            .play();
     }
     render() {
+        // <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
 
         let displayedElement;
         if (this.state.currentView === "start-game") {
             displayedElement = (<div className="start-game">
                 <h1>Harvest</h1>
-                <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
                 <button onClick={() => {
                         this.setState({currentView: "game-running"});
                     }}>Click to begin</button>
@@ -135,7 +163,6 @@ class Entry extends Component {
             displayedElement = (<GameComponent playAudio={this.playAudio} endGame={this.endGame}></GameComponent>);
         } else if (this.state.currentView === "credits") {
             displayedElement = (<div className="credits">
-                <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
                 <h1>Thanks for playing!</h1>
                 <div className="credits-nascar">
                     <div>
