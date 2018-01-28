@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom';
 import GameComponent from "./GameComponent.jsx";
-import {Howl, Howler} from "Howler";
+// import {Howl, Howler} from "Howler";
 
 class Entry extends Component {
     constructor(props) {
