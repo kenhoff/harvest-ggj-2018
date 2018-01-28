@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Josefin+Sans|Merriweather|Permanent+Marker|VT323');
+
 body {
     margin: 0;
     position: relative;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    letter-spacing: 0.03em;
+    // letter-spacing: 0.03em;
 }
 
 .credits,
@@ -17,9 +19,33 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
+
+    h1 {
+        font-size: 300%;
+        letter-spacing: 0.5em;
+        font-family: 'Permanent Marker', cursive;
+        text-align: center;
+    }
+}
+
+.start-game {
+    button {
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 0.2em 0.4em;
+        font-family: 'Merriweather', serif;
+        background-color: white;
+    }
 }
 
 .credits {
+    font-family: 'Josefin Sans', sans-serif;
+
+    h1 {
+        font-family: 'Permanent Marker', cursive;
+        letter-spacing: normal;
+    }
+
     .credits-nascar {
         display: flex;
         justify-content: space-around;
@@ -30,10 +56,19 @@ body {
             text-align: center;
 
             a {
-                color: inherit;
+                color: black;
+                font-family: 'VT323', monospace;
                 text-decoration: inherit;
+                cursor: pointer;
+                border: 1px solid black;
+                padding: 0.2em 0.4em;
+                background-color: white;
             }
         }
+    }
+
+    .bananacat {
+        width: 100px;
     }
 }
 
@@ -94,6 +129,8 @@ body {
     .player-response {
         text-align: right;
         margin-left: 5em;
+        font-family: 'Merriweather', serif;
+        letter-spacing: 0.02em;
     }
 
     .player-narrator-response {
@@ -101,12 +138,23 @@ body {
     }
 
     .entity-response,
-    .shopkeeper-response {
+    .shopkeeper-response,
+    .steward-response {
         margin-right: 5em;
         text-align: left;
     }
 
+    .entity-response {
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .shopkeeper-response,
+    .steward-response {
+        font-family: 'VT323', monospace;
+    }
+
     .narrator-response {
+        font-family: 'Crimson Text', serif;
         margin-left: 5em;
         margin-right: 5em;
         font-style: italic;
@@ -121,7 +169,10 @@ body {
     align-items: flex-end;
 
     .player-option {
+        text-align: right;
         background-color: white;
+        font-family: 'Merriweather', serif;
+        letter-spacing: 0.02em;
         cursor: pointer;
         border: 1px solid black;
         padding: 0.2em 0.4em;

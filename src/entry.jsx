@@ -34,7 +34,6 @@ class Entry extends Component {
 
     }
     playAudio(audioID) {
-        console.log(audioID);
         if (audioID === "farmhouse-outside-loop") {
             this
                 .outsideLoop
@@ -143,7 +142,7 @@ class Entry extends Component {
                         <p>
                             Darrell
                         </p>
-                        <p>
+                        <p className="twitter">
                             <a href="https://twitter.com/HardyTales">@HardyTales</a>
                         </p>
 
@@ -152,7 +151,7 @@ class Entry extends Component {
                         <p>
                             Elizabeth
                         </p>
-                        <p>
+                        <p className="twitter">
                             <a href="https://twitter.com/lizbernhardt">@lizbernhardt</a>
                         </p>
                     </div>
@@ -160,7 +159,7 @@ class Entry extends Component {
                         <p>
                             Jojo
                         </p>
-                        <p>
+                        <p className="twitter">
                             <a href="https://twitter.com/Ippika_">@Ippika_</a>
                         </p>
                     </div>
@@ -168,7 +167,7 @@ class Entry extends Component {
                         <p>
                             Joshua
                         </p>
-                        <p>
+                        <p className="twitter">
                             <a href="https://twitter.com/JoshuaDuChene">@JoshuaDuChene</a>
                         </p>
                     </div>
@@ -176,7 +175,7 @@ class Entry extends Component {
                         <p>
                             Ken
                         </p>
-                        <p>
+                        <p className="twitter">
                             <a href="https://twitter.com/ken_hoff">@ken_hoff</a>
                         </p>
                     </div>
@@ -186,6 +185,8 @@ class Entry extends Component {
                         </p>
                     </div>
                 </div>
+                <img className="bananacat" src="/art/bananacat_1024.png"></img>
+                <p>{'made with <3 by Bananacat Studios'}</p>
             </div>);
         }
         return (<div>

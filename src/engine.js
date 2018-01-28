@@ -2,7 +2,6 @@ import gameSequence from "./gameSequence";
 // const DEFAULT_DELAY = 1000;
 const DELAY_MODIFIER = process.env.DELAY_MODIFIER;
 const DEFAULT_DELAY = process.env.DEFAULT_DELAY;
-console.log(DEFAULT_DELAY);
 
 class Engine {
     constructor() {
@@ -41,7 +40,6 @@ class Engine {
 
     }
     playAudio(arrayOrString) {
-        console.log(arrayOrString);
         if (typeof arrayOrString === 'string') {
             this.dispatchAudio(arrayOrString)
         } else if (Array.isArray(arrayOrString)) {

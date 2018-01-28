@@ -32,13 +32,13 @@ let gameSequence = [
         text: "Today you must:"
     }, {
         character: "steward",
-        text: "Feed the livestock."
+        text: "- Feed the livestock."
     }, {
         character: "steward",
-        text: "Order fertilizer for next season."
+        text: "- Order fertilizer for next season."
     }, {
         character: "steward",
-        text: "Don't forget: you must prepare the corn for reaping before the frost this weekend."
+        text: "- Don't forget: you must prepare the corn for reaping before the frost this weekend."
     }, {
         character: "steward",
         text: "What will you do first, Adrian?"
