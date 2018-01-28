@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/main.scss';
 import Engine from "./engine";
+import DialogText from "./DialogText.jsx";
 
 let engine = new Engine();
 
@@ -37,9 +38,9 @@ class Game extends React.Component {
                     engine
                         .renderedSequence
                         .map(dialog => {
-                            return (<div key={Math.random()} className={`dialog-bit ${dialog.character}-response`}>
+                            return (<DialogText key={dialog.text} className={`dialog-bit ${dialog.character}-response`}>
                                 {dialog.text}
-                            </div>);
+                            </DialogText>);
                         })
                 }
             </div>)

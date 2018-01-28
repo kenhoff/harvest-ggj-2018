@@ -6,6 +6,7 @@ module.exports = [
         character: "steward",
         text: "Good morning, Carl. This is your Steward Citizen Home Lifestyle Maintenance System. The time is 5:00 AM, and it's time to get up."
     }, {
+        delay: 1,
         character: "steward",
         text: "Don't forget: you must prepare the corn for reaping before the frost this weekend. "
     }, {
@@ -114,7 +115,7 @@ module.exports = [
                 sequence: [
                     {
                         character: "player",
-                        text: " Not many do.Everyone's on their own friend-net now."
+                        text: "Not many do. Everyone's on their own friend-net now."
                     }
                 ]
             }, {
@@ -622,7 +623,7 @@ module.exports = [
         character: "player",
         text: "...No."
     }, {
-        delay: 100000
+        delay: 5
     }
 ];
 //

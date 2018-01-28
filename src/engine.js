@@ -13,14 +13,6 @@ class Engine {
     }
     start() {
         this.currentIndexInSequence = 0;
-        // setTimeout(() => {
-        //     this.renderedSequence = [
-        //         ...this.renderedSequence,
-        //         this.currentSequence[this.currentIndexInSequence]
-        //     ]
-        //     this.update()
-        //     this.nextStepInSequence();
-        // }, ((this.currentSequence[this.currentIndexInSequence].delay * 1000 * DELAY_MODIFIER) || DEFAULT_DELAY * DELAY_MODIFIER));
 
         if (this.currentSequence[this.currentIndexInSequence].type == "options") {
             setTimeout(() => {
