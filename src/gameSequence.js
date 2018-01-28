@@ -111,7 +111,7 @@ let gameSequence = [
         options: [
             {
                 id: shortid.generate(),
-                text: "Answer the console.",
+                text: "(Answer the console.)",
                 sequence: []
             }
         ]
