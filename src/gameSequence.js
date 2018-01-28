@@ -309,11 +309,13 @@ let gameSequence = [
         ]
     }, {
         delay: 5,
-        audio: [
-            "shopkeeper", "farmhouse-outside-loop"
-        ],
+        audio: ["farmhouse-outside-loop"],
         clear: true,
         location: "store",
+        character: "narrator",
+        text: "Tundra Alpha Life is the only store left in town. Its proprietor is an ambient AI named DOC. It's an acronym for something, but you can't remember what."
+    }, {
+        audio: ["shopkeeper"],
         character: "shopkeeper",
         text: "Hello, Adrian. What brings you in today?"
     }, {
