@@ -57,8 +57,12 @@ body {
         background-image: url("/art/store-interior-mockup.jpg");
     }
 
-    &.console {
+    &.console-on {
         background-image: url("/art/Farmhouse_inside_colorgood_day.png");
+    }
+
+    &.console-off {
+        background-image: url("/art/Farmhouse_inside_colorbad_day.png");
     }
 }
 

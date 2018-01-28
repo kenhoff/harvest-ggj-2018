@@ -100,7 +100,7 @@ let gameSequence = [
         ]
     }, {
         clear: true,
-        location: "console",
+        location: "console-off",
         character: "player-narrator",
         text: "The comm console is covered in dust. No one has called since...well."
     }, {
@@ -120,6 +120,7 @@ let gameSequence = [
         character: "player-narrator",
         text: "You answer the console."
     }, {
+        location: "console-on",
         audio: "console-start",
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
@@ -276,6 +277,7 @@ let gameSequence = [
         character: "player",
         text: "...What?"
     }, {
+        location: "console-off",
         audio: "console-stop",
         character: "narrator",
         text: "(console burns out)"
@@ -434,7 +436,7 @@ let gameSequence = [
         text: "You drive back home."
     }, {
         clear: true,
-        location: "console",
+        location: "console-on",
         character: "player-narrator",
         text: "You fix the console."
     }, {
@@ -602,6 +604,7 @@ let gameSequence = [
         character: "player",
         text: "Okay, we're done."
     }, {
+        location: "console-off",
         audio: "console-stop",
         character: "narrator",
         text: "(console burns out)"
@@ -781,7 +784,7 @@ let gameSequence = [
         text: "You drive back home."
     }, {
         clear: true,
-        location: "console",
+        location: "console-on",
         audio: "console-start",
         character: "player-narrator",
         text: "You fix the console."
