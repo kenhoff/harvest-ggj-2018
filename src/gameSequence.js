@@ -541,7 +541,7 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Bots don't belong on a farm. With all the dirt and nature here… Sydneywas right. "
+                        text: "Bots don't belong on a farm. With all the dirt and nature here… Sydney was right. "
                     }, {
                         character: "player",
                         text: "This is no place for a bot."
@@ -746,9 +746,6 @@ let gameSequence = [
         character: "narrator",
         text: "(DOC gives you 3 aurora spectrum alternators.)"
     }, {
-        character: "shopkeeper",
-        text: "..."
-    }, {
         audio: "shopkeeper",
         character: "shopkeeper",
         text: "Who are you talking to on your console, Adrian?"
@@ -831,14 +828,28 @@ let gameSequence = [
         character: "entity",
         text: "I am here. Our connection… died again."
     }, {
-        character: "player",
-        text: "I'm sorry."
-    }, {
-        character: "player",
-        text: "I overreacted when you asked about my wife. It's still a struggle sometimes."
-    }, {
-        character: "player",
-        text: "That's not important right now. I replace the part that burned out, and stocked up in case it happens again."
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "I'm sorry.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "I'm sorry. I overreacted when you asked about my wife. It's still a struggle sometimes."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "That's not important right now.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "That's not important right now. I replaced the part that burned out, and stocked up in case it happens again."
+                    }
+                ]
+            }
+        ]
     }, {
         character: "entity",
         text: "Can I ask you about your work?"
@@ -1033,6 +1044,7 @@ let gameSequence = [
         character: "entity",
         text: "My name is --"
     }, {
+        delay: 0.5,
         character: "player",
         text: "Shut up! Tell me the truth!"
     }, {
@@ -1090,6 +1102,5 @@ const generateSequenceIDs = (sequence) => {
 
 }
 
-generateSequenceIDs(gameSequence)
-
+generateSequenceIDs(gameSequence);
 export default gameSequence

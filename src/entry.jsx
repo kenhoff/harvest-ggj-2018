@@ -37,6 +37,7 @@ class Entry extends Component {
             .play();
     }
     playAudio(audioID) {
+        console.log(audioID);
         if (audioID === "farmhouse-outside-loop") {
             this
                 .themeMusic
