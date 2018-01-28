@@ -81,23 +81,23 @@ body {
     background-repeat: no-repeat;
 
     &.farmhouse-day {
-        background-image: url("/art/Farmhouse_outside_color.png");
+        background-image: url("/art/Farmhouse_outside_color.jpg");
     }
 
     &.farmhouse-night {
-        background-image: url("/art/Farmhouse_outside_colornight.png");
+        background-image: url("/art/Farmhouse_outside_colornight.jpg");
     }
 
     &.store {
-        background-image: url("/art/General-Store_color.png");
+        background-image: url("/art/General-Store_color.jpg");
     }
 
     &.console-on {
-        background-image: url("/art/Farmhouse_inside_colorgood_day.png");
+        background-image: url("/art/Farmhouse_inside_colorgood_day.jpg");
     }
 
     &.console-off {
-        background-image: url("/art/Farmhouse_inside_colorbad_day.png");
+        background-image: url("/art/Farmhouse_inside_colorbad_day.jpg");
     }
 }
 
