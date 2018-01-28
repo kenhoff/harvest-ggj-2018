@@ -363,45 +363,41 @@ module.exports = [
             {
                 id: shortid.generate(),
                 text: "None.",
-                sequence: []
-            }
-        ]
-    }, {
-        character: "player",
-        text: "None. It's a small farm. I don't need the help."
-    }, {
-        character: "entity",
-        text: "But help would be make your harvest more efficient."
-    }, {
-        type: "options",
-        options: [
-            {
+                sequence: [
+                    {
+                        character: "player",
+                        text: "None. It's a small farm. I don't need the help."
+                    }, {
+                        character: "entity",
+                        text: "But help would be make your harvest more efficient."
+                    }
+                ]
+            }, {
                 id: shortid.generate(),
                 text: "We used to have one.",
-                sequence: []
-            }
-        ]
-    }, {
-        character: "player",
-        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn. When it got too expensive to fix, we scrapped it."
-    }, {
-        character: "entity",
-        text: "Scrapped? That seems inefficient."
-    }, {
-        type: "options",
-        options: [
-            {
+                sequence: [
+                    {
+                        character: "player",
+                        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn. When it got too expensive to fix, we scrapped it."
+                    }, {
+                        character: "entity",
+                        text: "Scrapped? That seems inefficient."
+                    }
+                ]
+            }, {
                 id: shortid.generate(),
                 text: "Why do you want to know?",
-                sequence: []
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Why do you want to know?"
+                    }, {
+                        character: "entity",
+                        text: "I just wonder how… fast the… bots spread where you were. How widespread they were outside the cities."
+                    }
+                ]
             }
         ]
-    }, {
-        character: "player",
-        text: "Why do you want to know?"
-    }, {
-        character: "entity",
-        text: "I just wonder how… fast the… bots spread where you were. How widespread they were outside the cities."
     }, {
         character: "entity",
         text: "You could acquire a new bot easily. Why have you avoided it?"
@@ -475,13 +471,13 @@ module.exports = [
         ]
     }, {
         character: "entity",
-        text: "What happened to Eve?"
+        text: "What happened to Eve? " // leave the space on this one
     }, {
         character: "player",
         text: "I told you. I don't want to talk about it anymore."
     }, {
         character: "entity",
-        text: "What happened to Eve?"
+        text: "What happened to Eve?  " // leave the two spaces on this one
     }, {
         character: "player",
         text: "Okay, we're done."

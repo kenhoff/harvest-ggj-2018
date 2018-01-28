@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom';
-import Game from "./game.jsx";
+import Game from "./Game.jsx";
 
 class Entry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentView: "credits"
+            currentView: "start-game"
         }
         this.endGame = this
             .endGame
