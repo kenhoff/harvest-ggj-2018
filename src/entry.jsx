@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom';
-import Game from "./Game.jsx";
+import GameComponent from "./GameComponent.jsx";
 
 class Entry extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Entry extends Component {
                         }}>Click to begin</button>
                 </div>);
             case "game-running":
-                return (<Game endGame={this.endGame}></Game>);
+                return (<GameComponent endGame={this.endGame}></GameComponent>);
             case "credits":
                 return (<div className="credits">
                     <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
