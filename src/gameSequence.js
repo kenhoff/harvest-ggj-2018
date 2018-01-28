@@ -56,7 +56,7 @@ let gameSequence = [
                         text: "You're not sure what you did wrong with the corn. It should be ripe by now."
                     }, {
                         character: "player-narrator",
-                        text: "Sydney would have known what went wrong, but she's gone now, and you're just hoping it's ripe enough to harvest before it freezes."
+                        text: "Sydney would have known what went wrong, but...well, you're just hoping it's ripe enough to harvest before it freezes."
                     }, {
                         audio: "console-beeping-start",
                         character: "player-narrator",
@@ -551,7 +551,7 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Sydney didn't like them. She said they seemed sad and creepy. She felt they resented her. "
+                        text: "Sydney didn't like them. Said they seemed resentful. I guess they can be kind of creepy."
                     }
                 ]
             }, {
@@ -600,7 +600,7 @@ let gameSequence = [
                 ]
             }, {
                 id: shortid.generate(),
-                text: "She passed away.",
+                text: "Sydney passed away.",
                 sequence: [
                     {
                         character: "player",
@@ -623,13 +623,13 @@ let gameSequence = [
         ]
     }, {
         character: "entity",
-        text: "What happened to Sydney? " // leave the space on this one
+        text: "Really, Adrian?"
     }, {
         character: "player",
-        text: "I told you. I don't want to talk about it anymore."
+        text: "What? What are you trying to say?"
     }, {
         character: "entity",
-        text: "What happened to Sydney?  " // leave the two spaces on this one
+        text: "What happened to Sydney?"
     }, {
         character: "player",
         text: "Okay, we're done."
@@ -737,11 +737,11 @@ let gameSequence = [
                 ]
             }, {
                 id: shortid.generate(),
-                text: "The driver who killed my wife.",
+                text: "The driver who killed Sydney.",
                 sequence: [
                     {
                         character: "player",
-                        text: "The driver who killed my wife."
+                        text: "The driver who killed Sydney."
                     }, {
                         character: "player",
                         text: "But that's not going to happen."
@@ -808,10 +808,79 @@ let gameSequence = [
     }, {
         audio: "shopkeeper",
         character: "shopkeeper",
-        text: "Are you sure, Adrian?"
+        text: "Which channel are they using?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Um....they’re from Mumbai, so...",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Um....they’re from Mumbai, so... Which channel would that be?"
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "I don’t remember.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "I don’t remember. It’s not like I memorized the setting, DOC."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Nosy much?",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Nosy much? You expecting a call or something?"
+                    }
+                ]
+            }
+        ]
+    }, {
+        audio: "shopkeeper",
+        character: "shopkeeper",
+        text: "Most of the older channels are idle. I am merely...surprised."
     }, {
         character: "player",
-        text: "...No."
+        text: "What are you trying to say?"
+    }, {
+        character: "player",
+        text: "You know what, never mind."
+    }, {
+        character: "player",
+        text: "Thanks for the alternators."
+    }, {
+        audio: "shopkeeper",
+        character: "shopkeeper",
+        text: "Goodbye, Adrian. Happy anniversary!"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "Oh. Thanks.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Oh. Thanks."
+                    }
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "Screw you.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "Screw you."
+                    }
+                ]
+            }
+        ]
     }, {
         type: "options",
         options: [
