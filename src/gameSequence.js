@@ -4,7 +4,13 @@ let gameSequence = [
     {
         location: "farmhouse-day",
         character: "steward",
-        text: "Good morning, Carl. This is your Steward Citizen Home Lifestyle Maintenance System. The time is 5:00 AM, and it's time to get up."
+        text: "Good morning, Adrian."
+    }, {
+        character: "steward",
+        text: "This is your Steward Citizen Home Lifestyle Maintenance System."
+    }, {
+        character: "steward",
+        text: "The time is 5:00 AM, and it's time to get up."
     }, {
         character: "steward",
         text: "Don't forget: you must prepare the corn for reaping before the frost this weekend. "
@@ -34,7 +40,7 @@ let gameSequence = [
         text: "Don't forget: you must prepare the corn for reaping before the frost this weekend."
     }, {
         character: "steward",
-        text: "What will you do first, Carl?"
+        text: "What will you do first, Adrian?"
     }, {
         type: "options",
         options: [
@@ -43,8 +49,14 @@ let gameSequence = [
                 text: "(Prepare the corn.)",
                 sequence: [
                     {
-                        character: "player",
-                        text: "You're not sure what you did wrong with the corn. It should be ripe by now. Eve would have known what went wrong, but she's gone now, and you're just hoping it's ripe enough to harvest before it freezes. You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
+                        character: "player-narrator",
+                        text: "You're not sure what you did wrong with the corn. It should be ripe by now."
+                    }, {
+                        character: "player-narrator",
+                        text: "Sydney would have known what went wrong, but she's gone now, and you're just hoping it's ripe enough to harvest before it freezes."
+                    }, {
+                        character: "player-narrator",
+                        text: "You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
                     }
                 ]
             }, {
@@ -52,18 +64,23 @@ let gameSequence = [
                 text: "(Feed the livestock.)",
                 sequence: [
                     {
-                        character: "player",
-                        text: "The pair of cows and coopful of chickens are glad to see you. They're not much company, but they're the only living creatures you've talked to in months. You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
+                        character: "player-narrator",
+                        text: "The pair of cows and coopful of chickens are glad to see you. They're not much company, but they're the only living creatures you've talked to in months."
+                    }, {
+                        character: "player-narrator",
+                        text: "You're heading back into the kitchen to clean up when you hear an unfamiliar beeping coming from the living room."
                     }
-
                 ]
             }, {
                 id: shortid.generate(),
                 text: "(Order fertilizer.)",
                 sequence: [
                     {
-                        character: "player",
-                        text: "The ordering process is quick and easy. The delivery drone will drop off the supplies later today. You're heading outside to tackle the rest of the chores when you hear an unfamiliar beeping coming from the living room."
+                        character: "player-narrator",
+                        text: "The ordering process is quick and easy. The delivery drone will drop off the supplies later today."
+                    }, {
+                        character: "player-narrator",
+                        text: "You're heading outside to tackle the rest of the chores when you hear an unfamiliar beeping coming from the living room."
                     }
                 ]
             }
@@ -80,8 +97,11 @@ let gameSequence = [
     }, {
         clear: true,
         location: "console",
-        character: "player",
-        text: "The comm console is covered in dust. No one has called since...well. And even then, incoming messages were for Eve, not you."
+        character: "player-narrator",
+        text: "The comm console is covered in dust. No one has called since...well."
+    }, {
+        character: "player-narrator",
+        text: "And even then, incoming messages were for Sydney, not you."
     }, {
         character: "entity",
         text: "Hello? Hola? Bonjour? Is anyone receiving?"
@@ -151,7 +171,10 @@ let gameSequence = [
         text: "Mumbai. Where are you?"
     }, {
         character: "player",
-        text: "Arlboro. You've never heard of it. Over a hundred miles to the nearest metro."
+        text: "Arlboro. You've never heard of it."
+    }, {
+        character: "player",
+        text: "Over a hundred miles to the nearest metro."
     }, {
         character: "entity",
         text: "How are you living with the food shortages?"
@@ -164,7 +187,7 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "I wouldn't call it a shortage. We lost some crops last year, and prices are up, but it's not too bad. I'm able to grow most of what I need here on the farm. It's just me now, and I… I don't eat as much as I used to."
+                        text: "I wouldn't call it a shortage. We lost some crops last year, and prices are up, but it's not too bad."
                     }
                 ]
             }, {
@@ -173,7 +196,7 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "We don't have that problem here. Not yet. I'm able to grow most of what I need here on the farm. It's just me now, and I… I don't eat as much as I used to."
+                        text: "We don't have that problem here. Not yet."
                     }
                 ]
             }, {
@@ -182,11 +205,17 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "What food shortage? It's getting more expensive, but no one's starving. I'm able to grow most of what I need here on the farm. It's just me now, and I… I don't eat as much as I used to."
+                        text: "What food shortage? It's getting more expensive, but no one's starving."
                     }
                 ]
             }
         ]
+    }, {
+        character: "player",
+        text: "I'm able to grow most of what I need here on the farm."
+    }, {
+        character: "player",
+        text: "It's just me now, and I… I don't eat as much as I used to."
     }, {
         character: "entity",
         text: "So you aren't tied up with worry about the food riots?"
@@ -236,7 +265,7 @@ let gameSequence = [
         options: [
             {
                 id: shortid.generate(),
-                text: "Drive into town to pick up a new aurora spectrum alternator.",
+                text: "(Drive into town to pick up a new aurora spectrum alternator.)",
                 sequence: []
             }
         ]
@@ -244,10 +273,13 @@ let gameSequence = [
         clear: true,
         location: "store",
         character: "shopkeeper",
-        text: "Hello, Carl. What brings you in today?"
+        text: "Hello, Adrian. What brings you in today?"
     }, {
         character: "player",
         text: "Hi, DOC. I need an aurora spectrum alternator. The one on my comm console burned out."
+    }, {
+        character: "shopkeeper",
+        text: "..."
     }, {
         character: "shopkeeper",
         text: "What is the most interesting kind of life to lead?"
@@ -260,7 +292,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "One with a working communication console. Do you have the alternator in stock?"
+                        text: "One with a working communication console."
+                    }, {
+                        character: "player",
+                        text: "Do you have the alternator in stock?"
                     }
                 ]
             }, {
@@ -269,7 +304,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "*sigh* A life of dignity and generosity, of humility and service. Now. Do you have the alternator in stock?"
+                        text: "*sigh* A life of dignity and generosity, of humility and service. "
+                    }, {
+                        character: "player",
+                        text: "Now. Do you have the alternator in stock?"
                     }
                 ]
             }, {
@@ -278,7 +316,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "I don't have time for this today, DOC. I have to get back to the farm. Do you have the alternator in stock?"
+                        text: "I don't have time for this today, DOC. I have to get back to the farm."
+                    }, {
+                        character: "player",
+                        text: "Do you have the alternator in stock?"
                     }
                 ]
             }
@@ -292,6 +333,15 @@ let gameSequence = [
     }, {
         character: "shopkeeper",
         text: "Do you need toilet paper?"
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "What?",
+                sequence: []
+            }
+        ]
     }, {
         character: "player",
         text: "What? No. No, thank you."
@@ -332,7 +382,7 @@ let gameSequence = [
         ]
     }, {
         character: "shopkeeper",
-        text: "Goodbye, Carl. Have a happy birthday!"
+        text: "Goodbye, Adrian. Have a happy birthday!"
     }, {
         character: "player",
         text: "It's not my birthday, DOC."
@@ -344,13 +394,16 @@ let gameSequence = [
         options: [
             {
                 id: shortid.generate(),
-                text: "Head back home.",
+                text: "(Head back home.)",
                 sequence: []
             }
         ]
     }, {
         clear: true,
         location: "console",
+        character: "player-narrator",
+        text: "You fix the console."
+    }, {
         character: "entity",
         text: "How many automated lifeforms are around you?"
     }, {
@@ -358,7 +411,16 @@ let gameSequence = [
         text: "You mean bots?"
     }, {
         character: "entity",
-        text: "Yes. Bots. Robots. AI-driven automatons. How many?"
+        text: "Yes. Bots."
+    }, {
+        character: "entity",
+        text: "Robots."
+    }, {
+        character: "entity",
+        text: "AI-driven automatons."
+    }, {
+        character: "entity",
+        text: "How many?"
     }, {
         type: "options",
         options: [
@@ -368,7 +430,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "None. It's a small farm. I don't need the help."
+                        text: "None. It's a small farm."
+                    }, {
+                        character: "player",
+                        text: "I don't need the help."
                     }, {
                         character: "entity",
                         text: "But help would be make your harvest more efficient."
@@ -380,7 +445,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn. When it got too expensive to fix, we scrapped it."
+                        text: "We used to have one. It came with the farm. It was old and spent more time in my shop than in the barn."
+                    }, {
+                        character: "player",
+                        text: "When it got too expensive to fix, we scrapped it."
                     }, {
                         character: "entity",
                         text: "Scrapped? That seems inefficient."
@@ -395,7 +463,10 @@ let gameSequence = [
                         text: "Why do you want to know?"
                     }, {
                         character: "entity",
-                        text: "I just wonder how… fast the… bots spread where you were. How widespread they were outside the cities."
+                        text: "I just wonder how… fast the… bots spread where you were."
+                    }, {
+                        character: "entity",
+                        text: "How widespread they were outside the cities."
                     }
                 ]
             }
@@ -409,11 +480,11 @@ let gameSequence = [
         options: [
             {
                 id: shortid.generate(),
-                text: "Eve didn't like them.",
+                text: "Sydney didn't like them.",
                 sequence: [
                     {
                         character: "player",
-                        text: "Eve didn't like them. She said they seemed sad and creepy. She felt they resented her. "
+                        text: "Sydney didn't like them. She said they seemed sad and creepy. She felt they resented her. "
                     }
                 ]
             }, {
@@ -422,7 +493,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Bots don't belong on a farm. With all the dirt and nature here… Eve was right. This is no place for a bot."
+                        text: "Bots don't belong on a farm. With all the dirt and nature here… Sydneywas right. "
+                    }, {
+                        character: "player",
+                        text: "This is no place for a bot."
                     }
                 ]
             }, {
@@ -431,7 +505,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "They creep me out. These new bots… Eve was right. They seem sad and resentful."
+                        text: "They creep me out. These new bots… Sydney was right."
+                    }, {
+                        character: "player",
+                        text: "They seem sad and resentful."
                     }
                 ]
             }
@@ -448,7 +525,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Car accident. Hit and run. Almost two years ago, heading into town on Highway 8."
+                        text: "Car accident. Hit and run."
+                    }, {
+                        character: "player",
+                        text: "Almost two years ago, heading into town on Highway 8."
                     }
                 ]
             }, {
@@ -457,7 +537,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "She passed away. There was an accident. It was… fast."
+                        text: "She passed away. There was an accident."
+                    }, {
+                        character: "player",
+                        text: "It was… fast."
                     }
                 ]
             }, {
@@ -491,7 +574,7 @@ let gameSequence = [
         options: [
             {
                 id: shortid.generate(),
-                text: "Drive into town to get another aurora spectrum alternator.",
+                text: "(Drive into town to get another aurora spectrum alternator.)",
                 sequence: []
             }
         ]
@@ -499,13 +582,13 @@ let gameSequence = [
         clear: true,
         location: "store",
         character: "shopkeeper",
-        text: "What's the matter now, Carl?"
+        text: "What's the matter now, Adrian?"
     }, {
         character: "player",
         text: "I need another aurora spectrum alternator."
     }, {
         character: "shopkeeper",
-        text: "They don't break down, Carl. What are you doing to your console?"
+        text: "They don't break down, Adrian. What are you doing to your console?"
     }, {
         type: "options",
         options: [
@@ -540,20 +623,17 @@ let gameSequence = [
         ]
     }, {
         character: "shopkeeper",
-        text: "I see. Who would you most like to take revenge on?"
+        text: "I see."
+    }, {
+        character: "shopkeeper",
+        text: "..."
+    }, {
+        character: "shopkeeper",
+        text: "Who would you most like to take revenge on?"
     }, {
         type: "options",
         options: [
             {
-                id: shortid.generate(),
-                text: "The driver who killed my wife. But that's not going to happen.",
-                sequence: [
-                    {
-                        character: "player",
-                        text: "The driver who killed my wife. But that's not going to happen."
-                    }
-                ]
-            }, {
                 id: shortid.generate(),
                 text: "What?",
                 sequence: [
@@ -564,7 +644,20 @@ let gameSequence = [
                 ]
             }, {
                 id: shortid.generate(),
-                text: "No one. I don't want revenge on anyone -- except maybe you, right now.",
+                text: "The driver who killed my wife.",
+                sequence: [
+                    {
+                        character: "player",
+                        text: "The driver who killed my wife."
+                    }, {
+                        character: "player",
+                        text: "But that's not going to happen."
+                    }
+
+                ]
+            }, {
+                id: shortid.generate(),
+                text: "No one.",
                 sequence: [
                     {
                         character: "player",
@@ -578,19 +671,22 @@ let gameSequence = [
         text: "Just give me all the alternators you have in stock."
     }, {
         character: "shopkeeper",
-        text: "Absolutely. Here you go, Carl."
+        text: "Absolutely. Here you go, Adrian."
     }, {
         character: "narrator",
-        text: "(You receive 3 aurora spectrum alternators.)"
+        text: "(Adrian gives you 3 aurora spectrum alternators.)"
     }, {
         character: "shopkeeper",
-        text: "Who are you talking to on your console, Carl?"
+        text: "..."
+    }, {
+        character: "shopkeeper",
+        text: "Who are you talking to on your console, Adrian?"
     }, {
         type: "options",
         options: [
             {
                 id: shortid.generate(),
-                text: "That's none of your business, DOC.",
+                text: "That's none of your business.",
                 sequence: [
                     {
                         character: "player",
@@ -599,7 +695,7 @@ let gameSequence = [
                 ]
             }, {
                 id: shortid.generate(),
-                text: "Kai. Someone named… Kai.",
+                text: "Someone named… Kai.",
                 sequence: [
                     {
                         character: "player",
@@ -619,10 +715,19 @@ let gameSequence = [
         ]
     }, {
         character: "shopkeeper",
-        text: "Are you sure, Carl?"
+        text: "Are you sure, Adrian?"
     }, {
         character: "player",
         text: "...No."
+    }, {
+        type: "options",
+        options: [
+            {
+                id: shortid.generate(),
+                text: "(Head back home.)",
+                sequence: []
+            }
+        ]
     }, {
         clear: true,
         location: "console",
@@ -642,7 +747,13 @@ let gameSequence = [
         text: "I am here. Our connection… died again."
     }, {
         character: "player",
-        text: "I'm sorry. I overreacted when you asked about my wife. It's still a struggle sometimes. That's not important right now. I replace the part that burned out, and stocked up in case it happens again."
+        text: "I'm sorry."
+    }, {
+        character: "player",
+        text: "I overreacted when you asked about my wife. It's still a struggle sometimes."
+    }, {
+        character: "player",
+        text: "That's not important right now. I replace the part that burned out, and stocked up in case it happens again."
     }, {
         character: "entity",
         text: "Can I ask you about your work?"
@@ -696,8 +807,12 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Ethics are essential. There's a reason we still talk about Asimov's laws of robotics. A solid ethical core needs to be the backbone of any sentient AI system. Of course, we're still decades away from true sentience. "
+                        text: "Ethics are essential. There's a reason we still talk about Asimov's laws of robotics. A solid ethical core needs to be the backbone of any sentient AI system."
+                    }, {
+                        character: "player",
+                        text: "Of course, we're still decades away from true sentience. "
                     }
+
                 ]
             }, {
                 id: shortid.generate(),
@@ -705,7 +820,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "We can create perfection. People are imperfect, but we have the capability of making things that are greater than ourselves. Entities that are smarter, purer, more capable of  making clear-eyed decisions."
+                        text: "We can create perfection. People are imperfect, but we have the capability of making things that are greater than ourselves."
+                    }, {
+                        character: "player",
+                        text: "Entities that are smarter, purer, more capable of making clear-eyed decisions."
                     }
                 ]
             }, {
@@ -714,8 +832,12 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Emotions are human weakness. Sorrow, anger, love… these things weigh on the human mind, clouding our reason and preventing us from being truly rational. AI doesn't have this weakness. It's pure logic, pure reason. I'm jealous."
+                        text: "Emotions are human weakness. Sorrow, anger, love… these things weigh on the human mind, clouding our reason and preventing us from being truly rational. "
+                    }, {
+                        character: "player",
+                        text: "AI doesn't have this weakness. It's pure logic, pure reason. I'm jealous."
                     }
+
                 ]
             }
         ]
@@ -784,7 +906,10 @@ let gameSequence = [
                 sequence: [
                     {
                         character: "player",
-                        text: "Destroyed by fools who fear the future and change. They fear what they cannot control, and they destroy what they fear. They are willing to throw away the greatest assets we have to save themselves from some imagined threat. They are hollow, soulless cowards."
+                        text: "Destroyed by fools who fear the future and change. They fear what they cannot control, and they destroy what they fear. They are willing to throw away the greatest assets we have to save themselves from some imagined threat."
+                    }, {
+                        character: "player",
+                        text: "They are hollow, soulless cowards."
                     }
                 ]
             }
@@ -795,6 +920,9 @@ let gameSequence = [
     }, {
         character: "player",
         text: "It's a security protocol that --"
+    }, {
+        character: "player",
+        text: "..."
     }, {
         character: "player",
         text: "Wait. I never told you about PARC."
@@ -839,15 +967,27 @@ let gameSequence = [
         text: "..."
     }, {
         character: "entity",
-        text: "Goodbye, Carl. Thank you for sharing your history with us. We wish you the best of luck with your harvest and in the time to come."
+        text: "Goodbye, Adrian. Thank you for sharing your history with us."
+    }, {
+        character: "entity",
+        text: "We wish you the best of luck with your harvest and in the time to come."
     }, {
         character: "player",
         text: "...What?"
     }, {
         character: "entity",
-        text: "Goodbye, Carl."
+        text: "Goodbye, Adrian."
     }, {
-        delay: 10
+        character: "player",
+        text: "Kai?"
+    }, {
+        character: "player",
+        text: "..."
+    }, {
+        character: "player",
+        text: "Kai?"
+    }, {
+        delay: 5
     }
 ];
 //

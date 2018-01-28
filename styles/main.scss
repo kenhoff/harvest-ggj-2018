@@ -1,6 +1,8 @@
 body {
     margin: 0;
     position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.03em;
 }
 
 .credits,
@@ -39,7 +41,6 @@ body {
     height: 100vh;
     width: 100vw;
     position: relative;
-    background-color: lightgray;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -69,8 +70,7 @@ body {
 }
 
 .dialog-box {
-    background-color: darkgray;
-    // max-height: 10em;
+    background-color: rgba(255, 255, 255, 0.6);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -86,9 +86,14 @@ body {
         position: relative;
     }
 
+    .player-narrator-response,
     .player-response {
         text-align: right;
         margin-left: 5em;
+    }
+
+    .player-narrator-response {
+        font-style: italic;
     }
 
     .entity-response,
