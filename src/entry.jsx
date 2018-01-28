@@ -47,6 +47,10 @@ class Entry extends Component {
                             <p>
                                 Jojo
                             </p>
+                            <p>
+                                <a href="https://twitter.com/Ippika_">@Ippika_</a>
+                            </p>
+
                         </div>
                         <div>
                             <p>
