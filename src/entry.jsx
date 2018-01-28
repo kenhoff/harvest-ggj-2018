@@ -7,9 +7,7 @@ class Entry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentView: process.env.NODE_ENV === "production"
-                ? "start-game"
-                : "game-running"
+            currentView: "start-game"
         }
         this.endGame = this
             .endGame
