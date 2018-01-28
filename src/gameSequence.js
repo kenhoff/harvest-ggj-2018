@@ -19,6 +19,9 @@ module.exports = [
             }
         ]
     }, {
+        character: "player",
+        text: "Steward, what's on the list for today?"
+    }, {
         character: "steward",
         text: "Today you must:"
     }, {
