@@ -44,8 +44,6 @@ class Game extends React.Component {
                     engine
                         .renderedSequence
                         .map(dialog => {
-                            // console.log(dialog.id);
-                            // console.log(dialog.text);
                             return (<DialogText key={dialog.id} className={`dialog-bit ${dialog.character}-response`}>
                                 {dialog.text}
                             </DialogText>);
@@ -55,6 +53,7 @@ class Game extends React.Component {
         }
 
         return (<div>
+            <audio src="/music/Outdoor_Music_Loop_v1.0.ogg" autoPlay="true" loop="true"></audio>
             <div className={`background ${location}`}>
                 <div className="dialog-container">
                     {dialogBox}

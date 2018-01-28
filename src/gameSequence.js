@@ -847,7 +847,7 @@ let gameSequence = [
         character: "entity",
         text: "Goodbye, Carl."
     }, {
-        delay: 5
+        delay: 10
     }
 ];
 //
