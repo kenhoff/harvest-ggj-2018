@@ -7,7 +7,7 @@ class Entry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentView: "start-game"
+            currentView: "credits"
         }
         this.endGame = this
             .endGame
@@ -31,12 +31,37 @@ class Entry extends Component {
             case "credits":
                 return (<div className="credits">
                     <audio autoPlay="true" src="/music/Theme_Song_Loop_v1.0.ogg" loop="true"></audio>
-                    <h1>Credits</h1>
-                    <p>Darrell</p>
-                    <p>Elizabeth</p>
-                    <p>Jojo</p>
-                    <p>Ken</p>
-                    <p>Terrence</p>
+                    <h1>Thanks for playing!</h1>
+                    <div className="credits-nascar">
+                        <div>
+                            <p>
+                                Darrell
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Elizabeth
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Jojo
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Ken
+                            </p>
+                            <p>
+                                <a href="https://twitter.com/ken_hoff">@ken_hoff</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Terrence
+                            </p>
+                        </div>
+                    </div>
                 </div>)
 
         }

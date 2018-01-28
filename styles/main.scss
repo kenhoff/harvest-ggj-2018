@@ -11,9 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.start-game {
     background-image: url("/art/Farmhouse_outside_colornight.png");
     background-size: cover;
     background-position: center;
@@ -21,8 +18,21 @@ body {
 }
 
 .credits {
-    color: white;
-    background-color: black;
+    .credits-nascar {
+        display: flex;
+        justify-content: space-around;
+        color: white;
+
+        > * {
+            padding: 1em;
+            text-align: center;
+
+            a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+        }
+    }
 }
 
 .background {

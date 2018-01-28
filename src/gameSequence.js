@@ -469,22 +469,22 @@ module.exports = [
                     {
                         character: "player",
                         text: "I don't want to talk about it."
-                    }, {
-                        character: "entity",
-                        text: "What happened to Eve?"
-                    }, {
-                        character: "player",
-                        text: "I told you. I don't want to talk about it anymore."
-                    }, {
-                        character: "entity",
-                        text: "What happened to Eve?"
-                    }, {
-                        character: "player",
-                        text: "Okay, we're done."
                     }
                 ]
             }
         ]
+    }, {
+        character: "entity",
+        text: "What happened to Eve?"
+    }, {
+        character: "player",
+        text: "I told you. I don't want to talk about it anymore."
+    }, {
+        character: "entity",
+        text: "What happened to Eve?"
+    }, {
+        character: "player",
+        text: "Okay, we're done."
     }, {
         character: "narrator",
         text: "(console burns out)"
